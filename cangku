@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>随手记录清单</title>
+<style>
+  :root{
+    --ink:#1c2b33; --ink-soft:#4c6470; --paper:#f3f6f5; --card:#ffffff;
+    --line:#dbe4e2; --accent:#1f6f5c; --accent-soft:#e4efec;
+    --warn:#b3541e; --mono:"SFMono-Regular",Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;}
+  .wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px;}
+  header{margin-bottom:28px;border-bottom:2px solid var(--ink);padding-bottom:16px;}
+  header .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;}
+  header h1{font-size:24px;margin:6px 0 4px;}
+  header p{margin:0;color:var(--ink-soft);font-size:14px;}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:18px;}
+  input[type="text"],input[type="password"]{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:6px;font-size:13px;font-family:var(--mono);background:var(--paper);}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+  .row input{flex:1;}
+  .checkbox-line{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft);margin-top:6px;}
+  button{font-family:inherit;font-size:14px;font-weight:600;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;}
+  button:disabled{opacity:.45;cursor:not-allowed;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-ghost{background:var(--accent-soft);color:var(--accent);}
+  #status{font-size:13px;margin-top:10px;color:var(--ink-soft);}
+  #status.ok{color:var(--accent);} #status.err{color:var(--warn);}
+  .item{display:flex;align-items:flex-start;gap:10px;padding:12px 4px;border-bottom:1px solid var(--line);}
+  .item:last-child{border-bottom:none;}
+  .item input[type="checkbox"]{margin-top:4px;width:16px;height:16px;flex-shrink:0;}
+  .item .txt{flex:1;font-size:14.5px;}
+  .item .meta{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;background:var(--accent-soft);color:var(--accent);margin-right:6px;}
+  .spinner{display:inline-block;width:12px;height:12px;border:2px solid var(--accent-soft);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin-right:6px;vertical-align:-1px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Idea Checklist</div>
+    <h1>随手记录清单</h1>
+    <p>勾选已完成的事项，保存后下次推送就不会再出现</p>
+  </header>
+
+  <div class="step">
+    <div class="row">
+      <input type="text" id="ghOwner" placeholder="GitHub用户名">
+      <input type="text" id="ghRepo" placeholder="仓库名">
+    </div>
+    <input type="password" id="ghToken" placeholder="GitHub Personal Access Token">
+    <div class="checkbox-line">
+      <input type="checkbox" id="rememberGh">
+      <label for="rememberGh">记住这些信息（仅保存在本机浏览器）</label>
+    </div>
+    <div style="margin-top:12px;">
+      <button class="btn-primary" id="loadBtn">加载清单</button>
+      <button class="btn-ghost" id="saveBtn" disabled>保存勾选结果</button>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <div class="step" id="listCard" style="display:none;">
+    <div id="itemList"></div>
+  </div>
+</div>
+
+<script>
+const ghOwner = document.getElementById('ghOwner');
+const ghRepo = document.getElementById('ghRepo');
+const ghToken = document.getElementById('ghToken');
+const rememberGh = document.getElementById('rememberGh');
+const loadBtn = document.getElementById('loadBtn');
+const saveBtn = document.getElementById('saveBtn');
+const status = document.getElementById('status');
+const listCard = document.getElementById('listCard');
+const itemList = document.getElementById('itemList');
+
+const GH_PATH = 'ideas.json';
+let currentData = null;
+let currentSha = null;
+
+(function loadSaved(){
+  const saved = localStorage.getItem('gh_config_idea');
+  if (saved) {
+    try {
+      const c = JSON.parse(saved);
+      ghOwner.value = c.owner || ''; ghRepo.value = c.repo || ''; ghToken.value = c.token || '';
+      rememberGh.checked = true;
+    } catch(e){}
+  }
+})();
+[ghOwner, ghRepo, ghToken].forEach(el => el.addEventListener('input', syncStorage));
+rememberGh.addEventListener('change', syncStorage);
+function syncStorage(){
+  if (rememberGh.checked) {
+    localStorage.setItem('gh_config_idea', JSON.stringify({owner:ghOwner.value.trim(), repo:ghRepo.value.trim(), token:ghToken.value.trim()}));
+  } else {
+    localStorage.removeItem('gh_config_idea');
+  }
+}
+
+function ghHeaders(){
+  return { 'Authorization': 'token ' + ghToken.value.trim(), 'Accept': 'application/vnd.github+json' };
+}
+function ghUrl(){
+  return `https://api.github.com/repos/${ghOwner.value.trim()}/${ghRepo.value.trim()}/contents/${GH_PATH}`;
+}
+function b64Decode(str){ return decodeURIComponent(escape(atob(str))); }
+function b64Encode(str){ return btoa(unescape(encodeURIComponent(str))); }
+
+loadBtn.addEventListener('click', async () => {
+  if (!ghOwner.value.trim() || !ghRepo.value.trim() || !ghToken.value.trim()) {
+    status.className = 'err'; status.textContent = '请先填GitHub用户名、仓库名和Token';
+    return;
+  }
+  loadBtn.disabled = true;
+  status.className = ''; status.innerHTML = '<span class="spinner"></span>正在加载…';
+  try {
+    const resp = await fetch(ghUrl(), { headers: ghHeaders() });
+    if (!resp.ok) throw new Error('读取失败（状态码' + resp.status + '），检查用户名/仓库名/Token');
+    const json = await resp.json();
+    currentSha = json.sha;
+    currentData = JSON.parse(b64Decode(json.content.replace(/\n/g,'')));
+    if (!currentData.items) currentData.items = [];
+    renderList();
+    status.className = 'ok'; status.textContent = `加载完成，共 ${currentData.items.length} 条记录`;
+    saveBtn.disabled = false;
+  } catch (err) {
+    status.className = 'err'; status.textContent = '加载失败：' + err.message;
+  } finally {
+    loadBtn.disabled = false;
+  }
+});
+
+function renderList(){
+  const pending = currentData.items
+    .map((it, idx) => ({...it, _idx: idx}))
+    .filter(it => !it.done)
+    .sort((a,b) => (a.time||'').localeCompare(b.time||''));
+
+  if (!pending.length) {
+    itemList.innerHTML = '<p style="color:var(--ink-soft);font-size:14px;">目前没有未完成的记录 👍</p>';
+    listCard.style.display = '';
+    return;
+  }
+
+  itemList.innerHTML = pending.map(it => `
+    <div class="item">
+      <input type="checkbox" data-idx="${it._idx}">
+      <div>
+        <div class="txt"><span class="tag">${it.type || '其他'}</span>${escapeHtml(it.summary || '')}</div>
+        <div class="meta">${(it.time || '').slice(0,16).replace('T',' ')}</div>
+      </div>
+    </div>
+  `).join('');
+  listCard.style.display = '';
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+saveBtn.addEventListener('click', async () => {
+  if (!currentData) return;
+  const checked = Array.from(itemList.querySelectorAll('input[type="checkbox"]:checked'));
+  if (!checked.length) {
+    status.className = 'err'; status.textContent = '没有勾选任何条目';
+    return;
+  }
+  checked.forEach(cb => {
+    const idx = Number(cb.dataset.idx);
+    currentData.items[idx].done = true;
+  });
+
+  saveBtn.disabled = true;
+  status.className = ''; status.innerHTML = '<span class="spinner"></span>正在保存到GitHub…';
+  try {
+    const resp = await fetch(ghUrl(), {
+      method: 'PUT',
+      headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `标记 ${checked.length} 条已完成`,
+        content: b64Encode(JSON.stringify(currentData, null, 2)),
+        sha: currentSha
+      })
+    });
+    if (!resp.ok) throw new Error('保存失败（状态码' + resp.status + '）');
+    status.className = 'ok'; status.textContent = '保存成功';
+    renderList();
+  } catch (err) {
+    status.className = 'err'; status.textContent = '保存失败：' + err.message;
+  } finally {
+    saveBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>部门日报汇总</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  :root{
+    --ink:#1c2b33;
+    --ink-soft:#4c6470;
+    --paper:#f3f6f5;
+    --card:#ffffff;
+    --line:#dbe4e2;
+    --accent:#1f6f5c;
+    --accent-soft:#e4efec;
+    --warn:#b3541e;
+    --warn-soft:#fbeee3;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    line-height:1.6;
+  }
+  .wrap{
+    max-width:840px;
+    margin:0 auto;
+    padding:40px 24px 80px;
+  }
+  header{
+    margin-bottom:32px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:18px;
+  }
+  header .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    color:var(--accent);
+    text-transform:uppercase;
+  }
+  header h1{
+    font-size:26px;
+    margin:6px 0 4px;
+    letter-spacing:.01em;
+  }
+  header p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 24px;
+    margin-bottom:20px;
+  }
+  .step-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .step-num{
+    font-family:var(--mono);
+    font-size:13px;
+    color:#fff;
+    background:var(--accent);
+    width:22px;height:22px;
+    border-radius:5px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .step-head h2{
+    font-size:15px;
+    margin:0;
+    font-weight:600;
+  }
+  .hint{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:6px 0 0;
+  }
+  input[type="file"]{
+    font-size:14px;
+  }
+  input[type="password"], input[type="text"]{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    font-size:14px;
+    font-family:var(--mono);
+    background:var(--paper);
+  }
+  .row{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .checkbox-line{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:8px;
+  }
+  button{
+    font-family:inherit;
+    font-size:14px;
+    font-weight:600;
+    border:none;
+    border-radius:6px;
+    padding:11px 20px;
+    cursor:pointer;
+    transition:opacity .15s;
+  }
+  button:disabled{ opacity:.45; cursor:not-allowed; }
+  .btn-primary{
+    background:var(--accent);
+    color:#fff;
+  }
+  .btn-primary:hover:not(:disabled){ opacity:.88; }
+  .btn-ghost{
+    background:var(--accent-soft);
+    color:var(--accent);
+  }
+  #parseStatus, #genStatus{
+    font-size:13px;
+    margin-top:10px;
+    color:var(--ink-soft);
+  }
+  #parseStatus.ok, #genStatus.ok{ color:var(--accent); }
+  #parseStatus.err, #genStatus.err{ color:var(--warn); }
+  #preview{
+    margin-top:14px;
+    font-size:13px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:12px;
+    display:none;
+  }
+  #preview.show{ display:block; }
+  #preview table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:12.5px;
+  }
+  #preview th, #preview td{
+    text-align:left;
+    padding:5px 8px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  #preview th{ color:var(--ink); font-weight:600; }
+
+  #outputCard{ display:none; }
+  #outputCard.show{ display:block; }
+  #outputBody{
+    white-space:pre-wrap;
+    font-size:14.5px;
+    line-height:1.75;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:18px 20px;
+    max-height:60vh;
+    overflow-y:auto;
+  }
+  #outputBody strong{ color:var(--accent); }
+  .toolbar{
+    display:flex;
+    gap:10px;
+    margin-top:14px;
+    flex-wrap:wrap;
+  }
+  .spinner{
+    display:inline-block;
+    width:13px;height:13px;
+    border:2px solid var(--accent-soft);
+    border-top-color:var(--accent);
+    border-radius:50%;
+    animation:spin .7s linear infinite;
+    margin-right:6px;
+    vertical-align:-2px;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  footer{
+    margin-top:36px;
+    font-size:12px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+    padding-top:16px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Daily Report Digest</div>
+    <h1>部门日报汇总</h1>
+    <p>上传企业微信/Worktile导出的日报或周报表格，自动整理成一份带主题分类的部门汇总</p>
+  </header>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">1</span><h2>填入密钥</h2></div>
+    <input type="password" id="apiKey" placeholder="OpenRouter API Key（openrouter.ai 获取，用于生成汇总）">
+    <div class="checkbox-line">
+      <input type="checkbox" id="rememberKey">
+      <label for="rememberKey">记住OpenRouter Key（仅保存在本机浏览器）</label>
+    </div>
+    <div style="height:10px"></div>
+    <input type="password" id="scKey" placeholder="Server酱 SendKey（sct.ftqq.com 获取，用于推送到微信，选填）">
+    <div class="checkbox-line">
+      <input type="checkbox" id="rememberSc">
+      <label for="rememberSc">记住Server酱 Key（仅保存在本机浏览器）</label>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">2</span><h2>上传日报/周报表格</h2></div>
+    <div class="row" style="margin-bottom:12px;">
+      <button class="btn-ghost" id="modeFileBtn" style="opacity:1;">上传Excel（电脑）</button>
+      <button class="btn-ghost" id="modePasteBtn" style="opacity:.55;">粘贴文本（手机）</button>
+    </div>
+
+    <div id="fileMode">
+      <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" multiple>
+      <p class="hint">可以一次选多个文件（比如日报+周报一起上传）。工具会自动识别"姓名"列，并把其余内容列（工作情况/待解决问题/知识积累/下周计划等）自动合并，忽略提交时间、评审人等非内容字段</p>
+    </div>
+
+    <div id="pasteMode" style="display:none;">
+      <p class="hint" style="margin-top:0;">手机上没法方便地导出Excel时用这个。按下面格式粘贴，<b>每人一段，姓名单独一行，空一行分隔不同的人</b>：</p>
+      <p class="hint" style="font-family:var(--mono); background:var(--paper); padding:8px 10px; border-radius:6px; border:1px solid var(--line);">王旭东<br>今日话务量38，接听来电27通……<br><br>姜芳芳<br>今日通话量45，邮件数据整理……</p>
+      <textarea id="pasteInput" rows="10" style="width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:6px; font-size:14px; font-family:inherit;" placeholder="从Worktile里复制内容后粘贴到这里"></textarea>
+      <button class="btn-primary" id="parsePasteBtn" style="margin-top:10px;">解析文本</button>
+    </div>
+
+    <div id="parseStatus"></div>
+    <div id="preview"></div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">3</span><h2>生成部门日报</h2></div>
+    <button class="btn-primary" id="genBtn" disabled>生成部门日报</button>
+    <div id="genStatus"></div>
+  </div>
+
+  <div class="step" id="outputCard">
+    <div class="step-head"><span class="step-num">✓</span><h2>部门日报</h2></div>
+    <div id="outputBody"></div>
+    <div class="toolbar">
+      <button class="btn-ghost" id="copyBtn">复制全文</button>
+      <button class="btn-primary" id="pushBtn">推送到微信</button>
+    </div>
+    <div id="pushStatus" style="font-size:13px;margin-top:8px;color:var(--ink-soft);"></div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><span class="step-num">4</span><h2>项目进展跟踪（跨设备，存在GitHub）</h2></div>
+
+    <p class="hint" style="margin-top:0;">首次使用需要填一次GitHub信息，之后每台设备都填一次即可，数据本身存在GitHub上，不占用本机存储</p>
+    <div class="row" style="margin-bottom:8px;">
+      <input type="text" id="ghOwner" placeholder="GitHub用户名，如 huihuisun389-ux" style="flex:1;">
+      <input type="text" id="ghRepo" placeholder="仓库名，如 moxihuihui" style="flex:1;">
+    </div>
+    <input type="password" id="ghToken" placeholder="GitHub Personal Access Token">
+    <div class="checkbox-line">
+      <input type="checkbox" id="rememberGh">
+      <label for="rememberGh">记住这些信息（仅保存在本机浏览器，换设备需要重新填）</label>
+    </div>
+
+    <p class="hint">项目名单（用逗号分隔，AI遇到不在名单里的内容会建议新增，你确认后才会真正加入）：</p>
+    <input type="text" id="projectList" placeholder="例如：知识库建设,周报工具迭代,客诉专项治理">
+
+    <div class="toolbar">
+      <button class="btn-primary" id="classifyBtn">归类到项目并保存进展</button>
+      <button class="btn-ghost" id="viewProjectsBtn">查看项目进展时间线</button>
+    </div>
+    <div id="projectStatus" style="font-size:13px;margin-top:10px;color:var(--ink-soft);"></div>
+    <div id="projectReview" style="display:none; margin-top:14px;">
+      <div style="white-space:pre-wrap; font-size:14px; line-height:1.7; background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:16px 18px;" id="projectReviewBody"></div>
+      <div class="toolbar">
+        <button class="btn-primary" id="confirmSaveBtn">确认无误，保存到GitHub</button>
+      </div>
+    </div>
+    <div id="projectTimeline" style="display:none; margin-top:14px; white-space:pre-wrap; font-size:14px; line-height:1.75; background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:16px 18px; max-height:60vh; overflow-y:auto;"></div>
+  </div>
+
+  <footer>
+    表格和汇报内容只在你的浏览器、OpenRouter接口、Server酱推送接口之间传输，不会经过任何第三方服务器保存。刷新页面后已上传的数据会清空。
+  </footer>
+
+</div>
+
+<script>
+let parsedEntries = []; // [{name, content, period, sheet}]
+
+const apiKeyInput = document.getElementById('apiKey');
+const rememberKey = document.getElementById('rememberKey');
+const savedKey = localStorage.getItem('openrouter_api_key_dept');
+if (savedKey) { apiKeyInput.value = savedKey; rememberKey.checked = true; }
+apiKeyInput.addEventListener('input', syncKeyStorage);
+rememberKey.addEventListener('change', syncKeyStorage);
+function syncKeyStorage(){
+  if (rememberKey.checked && apiKeyInput.value.trim()) {
+    localStorage.setItem('openrouter_api_key_dept', apiKeyInput.value.trim());
+  } else {
+    localStorage.removeItem('openrouter_api_key_dept');
+  }
+}
+
+const scKeyInput = document.getElementById('scKey');
+const rememberSc = document.getElementById('rememberSc');
+const savedScKey = localStorage.getItem('serverchan_key_dept');
+if (savedScKey) { scKeyInput.value = savedScKey; rememberSc.checked = true; }
+scKeyInput.addEventListener('input', syncScStorage);
+rememberSc.addEventListener('change', syncScStorage);
+function syncScStorage(){
+  if (rememberSc.checked && scKeyInput.value.trim()) {
+    localStorage.setItem('serverchan_key_dept', scKeyInput.value.trim());
+  } else {
+    localStorage.removeItem('serverchan_key_dept');
+  }
+}
+
+const fileInput = document.getElementById('fileInput');
+const parseStatus = document.getElementById('parseStatus');
+const preview = document.getElementById('preview');
+const genBtn = document.getElementById('genBtn');
+const genStatus = document.getElementById('genStatus');
+const outputCard = document.getElementById('outputCard');
+const outputBody = document.getElementById('outputBody');
+const copyBtn = document.getElementById('copyBtn');
+
+const modeFileBtn = document.getElementById('modeFileBtn');
+const modePasteBtn = document.getElementById('modePasteBtn');
+const fileMode = document.getElementById('fileMode');
+const pasteMode = document.getElementById('pasteMode');
+const pasteInput = document.getElementById('pasteInput');
+const parsePasteBtn = document.getElementById('parsePasteBtn');
+
+modeFileBtn.addEventListener('click', () => {
+  fileMode.style.display = ''; pasteMode.style.display = 'none';
+  modeFileBtn.style.opacity = '1'; modePasteBtn.style.opacity = '.55';
+});
+modePasteBtn.addEventListener('click', () => {
+  fileMode.style.display = 'none'; pasteMode.style.display = '';
+  modeFileBtn.style.opacity = '.55'; modePasteBtn.style.opacity = '1';
+});
+
+parsePasteBtn.addEventListener('click', () => {
+  const raw = pasteInput.value.trim();
+  parseStatus.className = '';
+  preview.classList.remove('show');
+  genBtn.disabled = true;
+  if (!raw) {
+    parseStatus.className = 'err';
+    parseStatus.textContent = '请先粘贴内容';
+    return;
+  }
+  // 按空行分块，每块第一行当姓名（要求短，不超过8个字，不含标点），其余当内容
+  const blocks = raw.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+  const entries = [];
+  const skipped = [];
+  blocks.forEach(block => {
+    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+    if (!lines.length) return;
+    const first = lines[0];
+    const isLikelyName = first.length <= 8 && !/[，。：:！？、\d]/.test(first);
+    if (!isLikelyName || lines.length < 2) {
+      skipped.push(block.slice(0, 20));
+      return;
+    }
+    entries.push({
+      name: first,
+      content: lines.slice(1).join('\n'),
+      pending: '',
+      period: '',
+      sheet: '粘贴文本'
+    });
+  });
+
+  if (!entries.length) {
+    parseStatus.className = 'err';
+    parseStatus.textContent = '没能识别出任何一段——请检查格式：第一行是姓名（短，不含标点），第二行开始是内容，不同人之间空一行';
+    return;
+  }
+
+  parsedEntries = entries;
+  parseStatus.className = 'ok';
+  parseStatus.textContent = `解析成功：共识别到 ${entries.length} 人` + (skipped.length ? `，有 ${skipped.length} 段没能识别为"姓名+内容"格式，已跳过` : '');
+
+  preview.innerHTML = '<table><thead><tr><th>姓名</th><th>周期/来源</th><th>内容预览</th></tr></thead><tbody>' +
+    parsedEntries.map(en => `<tr><td>${escapeHtml(en.name)}</td><td>${escapeHtml(en.period || en.sheet)}</td><td>${escapeHtml(en.content.slice(0,50))}${en.content.length>50?'…':''}</td></tr>`).join('') +
+    '</tbody></table>';
+  preview.classList.add('show');
+  genBtn.disabled = false;
+});
+
+const NAME_KEYS = ['姓名','工号','员工','客服','填报人','提交人'];
+// 这些列视为"非内容"字段，其余列一律当作汇报内容自动合并
+const META_KEYS = ['简报周期','提交时间','评审人','可见成员','评审状态','附件','周期'];
+
+fileInput.addEventListener('change', handleFiles);
+
+function readFileAsWorkbook(file){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = evt => {
+      try {
+        const data = new Uint8Array(evt.target.result);
+        resolve(XLSX.read(data, { type:'array' }));
+      } catch (err) { reject(err); }
+    };
+    reader.onerror = () => reject(new Error('文件读取失败'));
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+async function handleFiles(e){
+  const files = Array.from(e.target.files || []);
+  if (!files.length) return;
+  parseStatus.className = '';
+  parseStatus.textContent = '正在解析…';
+  preview.classList.remove('show');
+  genBtn.disabled = true;
+  parsedEntries = [];
+
+  const notes = [];
+  try {
+    for (const file of files) {
+      const wb = await readFileAsWorkbook(file);
+      for (const sheetName of wb.SheetNames) {
+        const sheet = wb.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(sheet, { defval:'' });
+        if (!rows.length) continue;
+
+        const headers = Object.keys(rows[0]);
+        const nameCol = headers.find(h => NAME_KEYS.some(k => h.includes(k)));
+        if (!nameCol) {
+          notes.push(`工作表"${sheetName}"没能识别出姓名列（表头：${headers.join('、')}），已跳过`);
+          continue;
+        }
+        const periodCol = headers.find(h => h.includes('周期'));
+        const pendingCol = headers.find(h => h.includes('待解决'));
+        const contentCols = headers.filter(h =>
+          h !== nameCol && h !== periodCol && !META_KEYS.some(m => h.includes(m))
+        );
+
+        rows.forEach(r => {
+          const name = String(r[nameCol] ?? '').trim();
+          if (!name) return;
+          const content = contentCols
+            .map(c => {
+              const v = String(r[c] ?? '').trim();
+              return v ? `【${c}】${v}` : '';
+            })
+            .filter(Boolean)
+            .join('\n');
+          if (!content) return; // 未提交/空行，跳过
+          parsedEntries.push({
+            name,
+            content,
+            pending: pendingCol ? String(r[pendingCol] ?? '').trim() : '',
+            period: periodCol ? String(r[periodCol] ?? '').trim() : '',
+            sheet: sheetName
+          });
+        });
+      }
+    }
+
+    if (!parsedEntries.length) {
+      throw new Error('没有解析到有效的汇报内容。' + (notes.length ? notes.join('；') : '请检查文件格式是否正确。'));
+    }
+
+    parseStatus.className = 'ok';
+    parseStatus.textContent = `解析成功：共读到 ${parsedEntries.length} 条汇报（来自 ${files.length} 个文件）` + (notes.length ? '。注意：' + notes.join('；') : '');
+
+    preview.innerHTML = '<table><thead><tr><th>姓名</th><th>周期/来源</th><th>内容预览</th></tr></thead><tbody>' +
+      parsedEntries.map(en => `<tr><td>${escapeHtml(en.name)}</td><td>${escapeHtml(en.period || en.sheet)}</td><td>${escapeHtml(en.content.slice(0,50))}${en.content.length>50?'…':''}</td></tr>`).join('') +
+      '</tbody></table>';
+    preview.classList.add('show');
+
+    genBtn.disabled = false;
+  } catch (err) {
+    parseStatus.className = 'err';
+    parseStatus.textContent = '解析失败：' + err.message;
+  }
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+genBtn.addEventListener('click', generateDigest);
+
+async function generateDigest(){
+  const key = apiKeyInput.value.trim();
+  if (!key) {
+    genStatus.className = 'err';
+    genStatus.textContent = '请先填入OpenRouter API Key';
+    return;
+  }
+  genBtn.disabled = true;
+  genStatus.className = '';
+  genStatus.innerHTML = '<span class="spinner"></span>正在生成，通常需要10-30秒…';
+  outputCard.classList.remove('show');
+
+  const today = new Date().toLocaleDateString('zh-CN', { year:'numeric', month:'2-digit', day:'2-digit' });
+  const reportsText = parsedEntries
+    .map(en => `【${en.name}】（${en.period || en.sheet}）\n${en.content}`)
+    .join('\n\n');
+
+  const prompt = `你是客服团队主管的助理，请把下面团队成员各自提交的汇报（可能包含日报和周报），整理成一份部门汇总，要求：
+
+1. 先给出"部门概览"：按事项/主题归类（比如共性问题处理、系统或工具问题、培训与知识库建设、绩效或客诉相关等），把做了类似事情的同事放在一起说明，指出重复出现的问题或值得关注的共性趋势
+2. 再给出"个人明细"：逐人列出姓名、对应的汇报周期，以及工作要点（可适当精简、去除口语化表达，但不要遗漏具体信息、数字和事项）
+3. 客观陈述，不要夸大总结，也不要编造原始内容里没有的信息
+4. 格式适合微信阅读，使用**加粗**标出小标题，分段清晰
+5. 不需要输出"待解决事项/待跟进事项"这个板块，后面会单独处理
+
+今日整理日期：${today}
+
+原始汇报（共${parsedEntries.length}条）：
+${reportsText}`;
+
+  try {
+    const digest = await callAI(prompt);
+
+    let pendingSection = '';
+    const withPending = parsedEntries.filter(en => en.pending);
+    if (withPending.length) {
+      genStatus.innerHTML = '<span class="spinner"></span>正在整理待跟进事项…';
+      const polished = [];
+      for (const en of withPending) {
+        try {
+          const p = await callAI(
+            `请把下面这段"待解决问题"精炼压缩成一两句话，保留关键信息（涉及事项、对象、工单等），不要新增或臆测原文没有的内容，不要加姓名、不要加称呼，直接给出精炼后的文字：\n\n${en.pending}`
+          );
+          polished.push(`- **${en.name}**：${p.trim()}`);
+        } catch (e) {
+          // 单条精炼失败就退回用原文，不影响整体
+          polished.push(`- **${en.name}**：${en.pending}`);
+        }
+      }
+      pendingSection = '\n\n**待跟进事项**\n' + polished.join('\n');
+    }
+
+    const finalText = digest + pendingSection;
+    outputBody.innerHTML = escapeHtml(finalText).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    outputCard.classList.add('show');
+    genStatus.className = 'ok';
+    genStatus.textContent = '生成完成';
+  } catch (err) {
+    genStatus.className = 'err';
+    genStatus.textContent = '生成失败：' + err.message;
+  } finally {
+    genBtn.disabled = false;
+  }
+}
+
+async function callAI(userPrompt){
+  const key = apiKeyInput.value.trim();
+  const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method:'POST',
+    headers:{
+      'Authorization': 'Bearer ' + key,
+      'Content-Type': 'application/json',
+      'HTTP-Referer': 'https://claude.ai',
+      'X-Title': 'Department Report Digest'
+    },
+    body: JSON.stringify({
+      model:'google/gemini-2.5-flash-lite',
+      messages:[{ role:'user', content: userPrompt }],
+      temperature:0.3
+    })
+  });
+  if (!resp.ok) {
+    const errText = await resp.text();
+    throw new Error(`接口返回错误（状态码${resp.status}）：${errText.slice(0,200)}`);
+  }
+  const data = await resp.json();
+  const text = data.choices?.[0]?.message?.content;
+  if (!text) throw new Error('接口返回内容为空，请稍后重试');
+  return text;
+}
+
+copyBtn.addEventListener('click', () => {
+  const text = outputBody.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const old = copyBtn.textContent;
+    copyBtn.textContent = '已复制 ✓';
+    setTimeout(() => { copyBtn.textContent = old; }, 1500);
+  });
+});
+
+const pushBtn = document.getElementById('pushBtn');
+const pushStatus = document.getElementById('pushStatus');
+
+pushBtn.addEventListener('click', async () => {
+  const scKey = scKeyInput.value.trim();
+  const text = outputBody.innerText;
+  if (!scKey) {
+    pushStatus.textContent = '请先在上方填入 Server酱 SendKey（没有的话，用"复制全文"手动发送也可以）';
+    pushStatus.style.color = 'var(--warn)';
+    return;
+  }
+  pushBtn.disabled = true;
+  pushStatus.textContent = '正在发送…';
+  pushStatus.style.color = 'var(--ink-soft)';
+
+  const today = new Date().toLocaleDateString('zh-CN', { year:'numeric', month:'2-digit', day:'2-digit' });
+  try {
+    // 用 no-cors 方式请求：浏览器端读不到返回结果，但请求本身会正常送达 Server酱
+    await fetch(`https://sctapi.ftqq.com/${scKey}.send`, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams({ title: `部门汇总 ${today}`, desp: text })
+    });
+    pushStatus.textContent = '已发送推送请求，请去微信服务通知查看。若几分钟内没收到，大概率是 SendKey 填错了，可以用"复制全文"手动发送';
+    pushStatus.style.color = 'var(--accent)';
+  } catch (err) {
+    pushStatus.textContent = '发送失败（可能是网络问题）：' + err.message + '，可以用"复制全文"手动发送';
+    pushStatus.style.color = 'var(--warn)';
+  } finally {
+    pushBtn.disabled = false;
+  }
+});
+
+/* ===================== 项目进展跟踪 ===================== */
+
+const ghOwner = document.getElementById('ghOwner');
+const ghRepo = document.getElementById('ghRepo');
+const ghToken = document.getElementById('ghToken');
+const rememberGh = document.getElementById('rememberGh');
+const projectListInput = document.getElementById('projectList');
+const classifyBtn = document.getElementById('classifyBtn');
+const viewProjectsBtn = document.getElementById('viewProjectsBtn');
+const projectStatus = document.getElementById('projectStatus');
+const projectReview = document.getElementById('projectReview');
+const projectReviewBody = document.getElementById('projectReviewBody');
+const confirmSaveBtn = document.getElementById('confirmSaveBtn');
+const projectTimeline = document.getElementById('projectTimeline');
+
+const GH_FILE_PATH = 'projects.json';
+let pendingClassification = null; // {entries, newProjects}
+
+(function loadGhSaved(){
+  const saved = localStorage.getItem('gh_config_dept');
+  if (saved) {
+    try {
+      const c = JSON.parse(saved);
+      ghOwner.value = c.owner || '';
+      ghRepo.value = c.repo || '';
+      ghToken.value = c.token || '';
+      projectListInput.value = c.projectList || '';
+      rememberGh.checked = true;
+    } catch(e){}
+  }
+})();
+[ghOwner, ghRepo, ghToken, projectListInput].forEach(el => el.addEventListener('input', syncGhStorage));
+rememberGh.addEventListener('change', syncGhStorage);
+function syncGhStorage(){
+  if (rememberGh.checked) {
+    localStorage.setItem('gh_config_dept', JSON.stringify({
+      owner: ghOwner.value.trim(), repo: ghRepo.value.trim(),
+      token: ghToken.value.trim(), projectList: projectListInput.value.trim()
+    }));
+  } else {
+    localStorage.removeItem('gh_config_dept');
+  }
+}
+
+function ghHeaders(){
+  return {
+    'Authorization': 'token ' + ghToken.value.trim(),
+    'Accept': 'application/vnd.github+json'
+  };
+}
+function ghUrl(){
+  return `https://api.github.com/repos/${ghOwner.value.trim()}/${ghRepo.value.trim()}/contents/${GH_FILE_PATH}`;
+}
+function b64EncodeUnicode(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+function b64DecodeUnicode(str){
+  return decodeURIComponent(escape(atob(str)));
+}
+
+// 读取 GitHub 上的 projects.json；文件不存在时返回空结构（sha为null）
+async function readProjectsFile(){
+  const resp = await fetch(ghUrl(), { headers: ghHeaders() });
+  if (resp.status === 404) {
+    return { data: { projects: [], entries: [] }, sha: null };
+  }
+  if (!resp.ok) throw new Error(`读取GitHub文件失败（状态码${resp.status}），检查用户名/仓库名/Token是否正确`);
+  const json = await resp.json();
+  const content = b64DecodeUnicode(json.content.replace(/\n/g, ''));
+  let data;
+  try { data = JSON.parse(content); } catch(e) { data = { projects: [], entries: [] }; }
+  if (!data.projects) data.projects = [];
+  if (!data.entries) data.entries = [];
+  return { data, sha: json.sha };
+}
+
+async function writeProjectsFile(data, sha, message){
+  const resp = await fetch(ghUrl(), {
+    method: 'PUT',
+    headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      message: message || '更新项目进展',
+      content: b64EncodeUnicode(JSON.stringify(data, null, 2)),
+      sha: sha || undefined
+    })
+  });
+  if (!resp.ok) {
+    const t = await resp.text();
+    throw new Error(`保存到GitHub失败（状态码${resp.status}）：${t.slice(0,200)}`);
+  }
+  return resp.json();
+}
+
+classifyBtn.addEventListener('click', async () => {
+  if (!ghOwner.value.trim() || !ghRepo.value.trim() || !ghToken.value.trim()) {
+    projectStatus.style.color = 'var(--warn)';
+    projectStatus.textContent = '请先填GitHub用户名、仓库名和Token';
+    return;
+  }
+  if (!parsedEntries.length) {
+    projectStatus.style.color = 'var(--warn)';
+    projectStatus.textContent = '请先在第2步上传/粘贴并解析出汇报内容';
+    return;
+  }
+  classifyBtn.disabled = true;
+  projectReview.style.display = 'none';
+  projectStatus.style.color = 'var(--ink-soft)';
+  projectStatus.innerHTML = '<span class="spinner"></span>正在读取现有项目数据…';
+
+  try {
+    const { data: existing } = await readProjectsFile();
+    const knownProjects = Array.from(new Set([
+      ...(projectListInput.value.split(',').map(s => s.trim()).filter(Boolean)),
+      ...existing.projects
+    ]));
+
+    projectStatus.innerHTML = '<span class="spinner"></span>正在用AI归类…';
+
+    const today = new Date().toLocaleDateString('zh-CN', { year:'numeric', month:'2-digit', day:'2-digit' });
+    const entriesText = parsedEntries.map((en,i) => `[${i}]【${en.name}】${en.content}`).join('\n\n');
+    const classifyPrompt = `你是项目管理助理。已有项目名单：${knownProjects.length ? knownProjects.join('、') : '（暂无，需要你从内容里判断）'}
+
+请阅读下面每一条汇报，判断它涉及名单里的哪个项目。如果内容明显不属于名单里任何一个项目，用"🆕项目名"的格式给出一个你认为合适的新项目名（简短，4-10个字）；如果一条内容不涉及任何具体项目（纯日常事务性内容），项目填"无归属"。
+
+严格按下面的JSON数组格式输出，不要输出任何其他文字，不要用markdown代码块包裹：
+[{"index":0,"project":"项目名或🆕新项目名或无归属","summary":"一句话进展描述，客观、不超过40字"}, ...]
+
+今日日期：${today}
+
+汇报内容：
+${entriesText}`;
+
+    const raw = await callAI(classifyPrompt);
+    let cleaned = raw.trim().replace(/^```json\s*/i, '').replace(/^```\s*/,'').replace(/```\s*$/,'');
+    let result;
+    try { result = JSON.parse(cleaned); } catch(e) {
+      throw new Error('AI返回格式无法解析，请重试一次');
+    }
+
+    const newProjects = new Set();
+    result.forEach(r => {
+      if (r.project && r.project.startsWith('🆕')) newProjects.add(r.project.replace('🆕','').trim());
+    });
+
+    pendingClassification = { existing, result, today };
+
+    let reviewText = '';
+    result.forEach(r => {
+      const en = parsedEntries[r.index];
+      reviewText += `【${en ? en.name : '?'}】→ ${r.project}\n${r.summary}\n\n`;
+    });
+    if (newProjects.size) {
+      reviewText = `⚠️ 发现 ${newProjects.size} 个不在现有名单里的新项目：${Array.from(newProjects).join('、')}\n（确认保存后会自动加入项目名单）\n\n` + reviewText;
+    }
+    projectReviewBody.textContent = reviewText.trim();
+    projectReview.style.display = '';
+    projectStatus.style.color = 'var(--accent)';
+    projectStatus.textContent = '归类完成，请检查下方结果，确认无误后点"保存到GitHub"';
+  } catch (err) {
+    projectStatus.style.color = 'var(--warn)';
+    projectStatus.textContent = '归类失败：' + err.message;
+  } finally {
+    classifyBtn.disabled = false;
+  }
+});
+
+confirmSaveBtn.addEventListener('click', async () => {
+  if (!pendingClassification) return;
+  confirmSaveBtn.disabled = true;
+  projectStatus.style.color = 'var(--ink-soft)';
+  projectStatus.innerHTML = '<span class="spinner"></span>正在保存到GitHub…';
+  try {
+    const { existing, result, today } = pendingClassification;
+    const { sha } = await readProjectsFile(); // 重新拿一次最新sha，避免冲突
+
+    const projectSet = new Set(existing.projects);
+    result.forEach(r => {
+      const projectName = r.project.startsWith('🆕') ? r.project.replace('🆕','').trim() : r.project;
+      if (projectName && projectName !== '无归属') projectSet.add(projectName);
+      const en = parsedEntries[r.index];
+      existing.entries.push({
+        date: today,
+        project: projectName,
+        person: en ? en.name : '',
+        summary: r.summary
+      });
+    });
+    existing.projects = Array.from(projectSet);
+
+    await writeProjectsFile(existing, sha, `新增 ${today} 的项目进展记录`);
+    projectStatus.style.color = 'var(--accent)';
+    projectStatus.textContent = '已保存到GitHub';
+    projectReview.style.display = 'none';
+    pendingClassification = null;
+  } catch (err) {
+    projectStatus.style.color = 'var(--warn)';
+    projectStatus.textContent = '保存失败：' + err.message;
+  } finally {
+    confirmSaveBtn.disabled = false;
+  }
+});
+
+viewProjectsBtn.addEventListener('click', async () => {
+  if (!ghOwner.value.trim() || !ghRepo.value.trim() || !ghToken.value.trim()) {
+    projectStatus.style.color = 'var(--warn)';
+    projectStatus.textContent = '请先填GitHub用户名、仓库名和Token';
+    return;
+  }
+  viewProjectsBtn.disabled = true;
+  projectStatus.style.color = 'var(--ink-soft)';
+  projectStatus.innerHTML = '<span class="spinner"></span>正在从GitHub读取…';
+  try {
+    const { data } = await readProjectsFile();
+    if (!data.entries.length) {
+      projectTimeline.style.display = '';
+      projectTimeline.textContent = '目前还没有任何项目进展记录，先用上面的"归类到项目并保存进展"生成一些吧。';
+      projectStatus.textContent = '';
+      return;
+    }
+    const byProject = {};
+    data.entries.forEach(e => {
+      if (!byProject[e.project]) byProject[e.project] = [];
+      byProject[e.project].push(e);
+    });
+    let out = '';
+    Object.keys(byProject).forEach(p => {
+      out += `【${p}】\n`;
+      byProject[p]
+        .sort((a,b) => a.date.localeCompare(b.date))
+        .forEach(e => { out += `${e.date}（${e.person}）：${e.summary}\n`; });
+      out += '\n';
+    });
+    projectTimeline.style.display = '';
+    projectTimeline.textContent = out.trim();
+    projectStatus.textContent = '已加载最新项目进展';
+    projectStatus.style.color = 'var(--accent)';
+  } catch (err) {
+    projectStatus.style.color = 'var(--warn)';
+    projectStatus.textContent = '读取失败：' + err.message;
+  } finally {
+    viewProjectsBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
