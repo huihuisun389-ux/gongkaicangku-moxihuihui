@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>随手记录清单</title>
+<style>
+  :root{
+    --ink:#1c2b33; --ink-soft:#4c6470; --paper:#f3f6f5; --card:#ffffff;
+    --line:#dbe4e2; --accent:#1f6f5c; --accent-soft:#e4efec;
+    --warn:#b3541e; --mono:"SFMono-Regular",Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;}
+  .wrap{max-width:720px;margin:0 auto;padding:40px 20px 80px;}
+  header{margin-bottom:28px;border-bottom:2px solid var(--ink);padding-bottom:16px;}
+  header .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;}
+  header h1{font-size:24px;margin:6px 0 4px;}
+  header p{margin:0;color:var(--ink-soft);font-size:14px;}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:18px;}
+  input[type="text"],input[type="password"]{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:6px;font-size:13px;font-family:var(--mono);background:var(--paper);}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+  .row input{flex:1;}
+  .checkbox-line{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft);margin-top:6px;}
+  button{font-family:inherit;font-size:14px;font-weight:600;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;}
+  button:disabled{opacity:.45;cursor:not-allowed;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-ghost{background:var(--accent-soft);color:var(--accent);}
+  #status{font-size:13px;margin-top:10px;color:var(--ink-soft);}
+  #status.ok{color:var(--accent);} #status.err{color:var(--warn);}
+  .item{display:flex;align-items:flex-start;gap:10px;padding:12px 4px;border-bottom:1px solid var(--line);}
+  .item:last-child{border-bottom:none;}
+  .item input[type="checkbox"]{margin-top:4px;width:16px;height:16px;flex-shrink:0;}
+  .item .txt{flex:1;font-size:14.5px;}
+  .item .meta{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:4px;background:var(--accent-soft);color:var(--accent);margin-right:6px;}
+  .spinner{display:inline-block;width:12px;height:12px;border:2px solid var(--accent-soft);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin-right:6px;vertical-align:-1px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Idea Checklist</div>
+    <h1>随手记录清单</h1>
+    <p>勾选已完成的事项，保存后下次推送就不会再出现</p>
+  </header>
+
+  <div class="step">
+    <div class="row">
+      <input type="text" id="ghOwner" placeholder="GitHub用户名">
+      <input type="text" id="ghRepo" placeholder="仓库名">
+    </div>
+    <input type="password" id="ghToken" placeholder="GitHub Personal Access Token">
+    <div class="checkbox-line">
+      <input type="checkbox" id="rememberGh">
+      <label for="rememberGh">记住这些信息（仅保存在本机浏览器）</label>
+    </div>
+    <div style="margin-top:12px;">
+      <button class="btn-primary" id="loadBtn">加载清单</button>
+      <button class="btn-ghost" id="saveBtn" disabled>保存勾选结果</button>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <div class="step" id="listCard" style="display:none;">
+    <div id="itemList"></div>
+  </div>
+</div>
+
+<script>
+const ghOwner = document.getElementById('ghOwner');
+const ghRepo = document.getElementById('ghRepo');
+const ghToken = document.getElementById('ghToken');
+const rememberGh = document.getElementById('rememberGh');
+const loadBtn = document.getElementById('loadBtn');
+const saveBtn = document.getElementById('saveBtn');
+const status = document.getElementById('status');
+const listCard = document.getElementById('listCard');
+const itemList = document.getElementById('itemList');
+
+const GH_PATH = 'ideas.json';
+let currentData = null;
+let currentSha = null;
+
+(function loadSaved(){
+  const saved = localStorage.getItem('gh_config_idea');
+  if (saved) {
+    try {
+      const c = JSON.parse(saved);
+      ghOwner.value = c.owner || ''; ghRepo.value = c.repo || ''; ghToken.value = c.token || '';
+      rememberGh.checked = true;
+    } catch(e){}
+  }
+})();
+[ghOwner, ghRepo, ghToken].forEach(el => el.addEventListener('input', syncStorage));
+rememberGh.addEventListener('change', syncStorage);
+function syncStorage(){
+  if (rememberGh.checked) {
+    localStorage.setItem('gh_config_idea', JSON.stringify({owner:ghOwner.value.trim(), repo:ghRepo.value.trim(), token:ghToken.value.trim()}));
+  } else {
+    localStorage.removeItem('gh_config_idea');
+  }
+}
+
+function ghHeaders(){
+  return { 'Authorization': 'token ' + ghToken.value.trim(), 'Accept': 'application/vnd.github+json' };
+}
+function ghUrl(){
+  return `https://api.github.com/repos/${ghOwner.value.trim()}/${ghRepo.value.trim()}/contents/${GH_PATH}`;
+}
+function b64Decode(str){ return decodeURIComponent(escape(atob(str))); }
+function b64Encode(str){ return btoa(unescape(encodeURIComponent(str))); }
+
+loadBtn.addEventListener('click', async () => {
+  if (!ghOwner.value.trim() || !ghRepo.value.trim() || !ghToken.value.trim()) {
+    status.className = 'err'; status.textContent = '请先填GitHub用户名、仓库名和Token';
+    return;
+  }
+  loadBtn.disabled = true;
+  status.className = ''; status.innerHTML = '<span class="spinner"></span>正在加载…';
+  try {
+    const resp = await fetch(ghUrl(), { headers: ghHeaders() });
+    if (!resp.ok) throw new Error('读取失败（状态码' + resp.status + '），检查用户名/仓库名/Token');
+    const json = await resp.json();
+    currentSha = json.sha;
+    currentData = JSON.parse(b64Decode(json.content.replace(/\n/g,'')));
+    if (!currentData.items) currentData.items = [];
+    renderList();
+    status.className = 'ok'; status.textContent = `加载完成，共 ${currentData.items.length} 条记录`;
+    saveBtn.disabled = false;
+  } catch (err) {
+    status.className = 'err'; status.textContent = '加载失败：' + err.message;
+  } finally {
+    loadBtn.disabled = false;
+  }
+});
+
+function renderList(){
+  const pending = currentData.items
+    .map((it, idx) => ({...it, _idx: idx}))
+    .filter(it => !it.done)
+    .sort((a,b) => (a.time||'').localeCompare(b.time||''));
+
+  if (!pending.length) {
+    itemList.innerHTML = '<p style="color:var(--ink-soft);font-size:14px;">目前没有未完成的记录 👍</p>';
+    listCard.style.display = '';
+    return;
+  }
+
+  itemList.innerHTML = pending.map(it => `
+    <div class="item">
+      <input type="checkbox" data-idx="${it._idx}">
+      <div>
+        <div class="txt"><span class="tag">${it.type || '其他'}</span>${escapeHtml(it.summary || '')}</div>
+        <div class="meta">${(it.time || '').slice(0,16).replace('T',' ')}</div>
+      </div>
+    </div>
+  `).join('');
+  listCard.style.display = '';
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+saveBtn.addEventListener('click', async () => {
+  if (!currentData) return;
+  const checked = Array.from(itemList.querySelectorAll('input[type="checkbox"]:checked'));
+  if (!checked.length) {
+    status.className = 'err'; status.textContent = '没有勾选任何条目';
+    return;
+  }
+  checked.forEach(cb => {
+    const idx = Number(cb.dataset.idx);
+    currentData.items[idx].done = true;
+  });
+
+  saveBtn.disabled = true;
+  status.className = ''; status.innerHTML = '<span class="spinner"></span>正在保存到GitHub…';
+  try {
+    const resp = await fetch(ghUrl(), {
+      method: 'PUT',
+      headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `标记 ${checked.length} 条已完成`,
+        content: b64Encode(JSON.stringify(currentData, null, 2)),
+        sha: currentSha
+      })
+    });
+    if (!resp.ok) throw new Error('保存失败（状态码' + resp.status + '）');
+    status.className = 'ok'; status.textContent = '保存成功';
+    renderList();
+  } catch (err) {
+    status.className = 'err'; status.textContent = '保存失败：' + err.message;
+  } finally {
+    saveBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
