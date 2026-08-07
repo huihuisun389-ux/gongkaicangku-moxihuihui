@@ -165,6 +165,39 @@
 
   #outputCard{ display:none; }
   #outputCard.show{ display:block; }
+  .tl-project{ margin-bottom:26px; }
+  .tl-project h3{
+    font-size:15px; margin:0 0 12px; padding-bottom:6px;
+    border-bottom:1px solid var(--line); color:var(--ink);
+  }
+  .tl-line{ position:relative; padding-left:22px; }
+  .tl-line::before{
+    content:''; position:absolute; left:5px; top:4px; bottom:4px;
+    width:2px; background:var(--line);
+  }
+  .tl-node{ position:relative; padding-bottom:16px; }
+  .tl-node:last-child{ padding-bottom:0; }
+  .tl-node::before{
+    content:''; position:absolute; left:-22px; top:4px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--accent); border:2px solid var(--card);
+    box-shadow:0 0 0 2px var(--accent);
+  }
+  .tl-date{ font-family:var(--mono); font-size:12px; color:var(--accent); margin-bottom:2px; }
+  .tl-summary{ font-size:14px; line-height:1.6; }
+  .tl-person{ font-size:12px; color:var(--ink-soft); }
+  [contenteditable="true"]{
+    outline:1px dashed transparent; border-radius:3px; padding:1px 2px;
+  }
+  [contenteditable="true"]:hover, [contenteditable="true"]:focus{
+    outline:1px dashed var(--accent);
+  }
+  .tl-del{
+    background:none; border:none; color:var(--warn); font-size:12px;
+    cursor:pointer; padding:0 0 0 8px; opacity:.7;
+  }
+  .tl-del:hover{ opacity:1; }
+  .tl-node.tl-removed{ opacity:.35; text-decoration:line-through; }
   #outputBody{
     white-space:pre-wrap;
     font-size:14.5px;
@@ -295,6 +328,9 @@
       </div>
     </div>
     <div id="projectTimeline" style="display:none; margin-top:14px; white-space:pre-wrap; font-size:14px; line-height:1.75; background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:16px 18px; max-height:60vh; overflow-y:auto;"></div>
+    <div class="toolbar" id="timelineSaveBar" style="display:none;">
+      <button class="btn-primary" id="saveTimelineBtn">保存修改</button>
+    </div>
   </div>
 
   <footer>
@@ -652,6 +688,9 @@ const projectReview = document.getElementById('projectReview');
 const projectReviewBody = document.getElementById('projectReviewBody');
 const confirmSaveBtn = document.getElementById('confirmSaveBtn');
 const projectTimeline = document.getElementById('projectTimeline');
+const timelineSaveBar = document.getElementById('timelineSaveBar');
+let loadedTimelineData = null;
+let loadedTimelineSha = null;
 
 const GH_FILE_PATH = 'projects.json';
 let pendingClassification = null; // {entries, newProjects}
@@ -762,6 +801,12 @@ classifyBtn.addEventListener('click', async () => {
 
 请阅读下面每一条汇报，判断它涉及名单里的哪个项目。如果内容明显不属于名单里任何一个项目，用"🆕项目名"的格式给出一个你认为合适的新项目名（简短，4-10个字）；如果一条内容不涉及任何具体项目（纯日常事务性内容），项目填"无归属"。
 
+严格要求：
+1. 下面一共有 ${parsedEntries.length} 条输入，每条前面用 [数字] 标好了编号（从0到${parsedEntries.length - 1}）
+2. 你的输出必须**正好是 ${parsedEntries.length} 条**，一条输入对应一条输出，不要因为一条汇报里提到好几件事就拆分成多条
+3. index 必须严格等于对应输入前面标的编号，不允许虚构、跳过或超出范围的编号
+4. 一条汇报里如果涉及多个项目，选最主要的那一个即可，不要拆分
+
 严格按下面的JSON数组格式输出，不要输出任何其他文字，不要用markdown代码块包裹：
 [{"index":0,"project":"项目名或🆕新项目名或无归属","summary":"一句话进展描述，客观、不超过40字"}, ...]
 
@@ -772,10 +817,15 @@ ${entriesText}`;
 
     const raw = await callAI(classifyPrompt);
     let cleaned = raw.trim().replace(/^```json\s*/i, '').replace(/^```\s*/,'').replace(/```\s*$/,'');
-    let result;
-    try { result = JSON.parse(cleaned); } catch(e) {
+    let parsedResult;
+    try { parsedResult = JSON.parse(cleaned); } catch(e) {
       throw new Error('AI返回格式无法解析，请重试一次');
     }
+
+    // 防御性过滤：index必须能对应到真实存在的输入条目，对不上的直接丢弃并提示，
+    // 不显示成令人困惑的"【?】"
+    const result = parsedResult.filter(r => Number.isInteger(r.index) && parsedEntries[r.index]);
+    const droppedCount = parsedResult.length - result.length;
 
     const newProjects = new Set();
     result.forEach(r => {
@@ -787,10 +837,13 @@ ${entriesText}`;
     let reviewText = '';
     result.forEach(r => {
       const en = parsedEntries[r.index];
-      reviewText += `【${en ? en.name : '?'}】→ ${r.project}\n${r.summary}\n\n`;
+      reviewText += `【${en.name}】→ ${r.project}\n${r.summary}\n\n`;
     });
     if (newProjects.size) {
       reviewText = `⚠️ 发现 ${newProjects.size} 个不在现有名单里的新项目：${Array.from(newProjects).join('、')}\n（确认保存后会自动加入项目名单）\n\n` + reviewText;
+    }
+    if (droppedCount > 0) {
+      reviewText = `⚠️ AI返回了 ${droppedCount} 条编号对不上原始记录的内容，已自动丢弃，不会影响其余正常记录的保存。如果丢弃数量较多，可以点"归类到项目并保存进展"重试一次。\n\n` + reviewText;
     }
     projectReviewBody.textContent = reviewText.trim();
     projectReview.style.display = '';
@@ -849,36 +902,99 @@ viewProjectsBtn.addEventListener('click', async () => {
   viewProjectsBtn.disabled = true;
   projectStatus.style.color = 'var(--ink-soft)';
   projectStatus.innerHTML = '<span class="spinner"></span>正在从GitHub读取…';
+  timelineSaveBar.style.display = 'none';
   try {
-    const { data } = await readProjectsFile();
+    const { data, sha } = await readProjectsFile();
+    loadedTimelineData = data;
+    loadedTimelineSha = sha;
     if (!data.entries.length) {
       projectTimeline.style.display = '';
       projectTimeline.textContent = '目前还没有任何项目进展记录，先用上面的"归类到项目并保存进展"生成一些吧。';
       projectStatus.textContent = '';
       return;
     }
+    // 给每条记录标上它在原始数组里的下标，方便编辑/删除时能对应回去
     const byProject = {};
-    data.entries.forEach(e => {
+    data.entries.forEach((e, origIdx) => {
       if (!byProject[e.project]) byProject[e.project] = [];
-      byProject[e.project].push(e);
+      byProject[e.project].push({ ...e, _origIdx: origIdx });
     });
-    let out = '';
+
+    let html = '';
     Object.keys(byProject).forEach(p => {
-      out += `【${p}】\n`;
-      byProject[p]
-        .sort((a,b) => a.date.localeCompare(b.date))
-        .forEach(e => { out += `${e.date}（${e.person}）：${e.summary}\n`; });
-      out += '\n';
+      const entries = byProject[p].sort((a,b) => a.date.localeCompare(b.date));
+      html += `<div class="tl-project"><h3>${escapeHtml(p)}（${entries.length}条进展）</h3><div class="tl-line">`;
+      entries.forEach(e => {
+        html += `<div class="tl-node" data-idx="${e._origIdx}">
+          <div class="tl-date">
+            <span contenteditable="true" data-field="date">${escapeHtml(e.date)}</span>
+            · <span class="tl-person" contenteditable="true" data-field="person">${escapeHtml(e.person||'')}</span>
+            <button class="tl-del" data-idx="${e._origIdx}" title="删除这条">删除</button>
+          </div>
+          <div class="tl-summary" contenteditable="true" data-field="summary">${escapeHtml(e.summary||'')}</div>
+        </div>`;
+      });
+      html += `</div></div>`;
     });
+
     projectTimeline.style.display = '';
-    projectTimeline.textContent = out.trim();
-    projectStatus.textContent = '已加载最新项目进展';
+    projectTimeline.style.whiteSpace = 'normal';
+    projectTimeline.innerHTML = html;
+    projectStatus.textContent = '已加载最新项目进展，内容可以直接点击修改，删掉的会先划线标记，最后统一保存';
     projectStatus.style.color = 'var(--accent)';
+    timelineSaveBar.style.display = '';
+
+    // 删除按钮：先标记（划线），不立即写GitHub，等点"保存修改"再统一处理
+    projectTimeline.querySelectorAll('.tl-del').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const node = btn.closest('.tl-node');
+        const removed = node.classList.toggle('tl-removed');
+        btn.textContent = removed ? '撤销删除' : '删除';
+      });
+    });
   } catch (err) {
     projectStatus.style.color = 'var(--warn)';
     projectStatus.textContent = '读取失败：' + err.message;
   } finally {
     viewProjectsBtn.disabled = false;
+  }
+});
+
+const saveTimelineBtn = document.getElementById('saveTimelineBtn');
+saveTimelineBtn.addEventListener('click', async () => {
+  if (!loadedTimelineData) return;
+  saveTimelineBtn.disabled = true;
+  projectStatus.style.color = 'var(--ink-soft)';
+  projectStatus.innerHTML = '<span class="spinner"></span>正在保存修改到GitHub…';
+  try {
+    const removeIdx = new Set();
+    projectTimeline.querySelectorAll('.tl-node').forEach(node => {
+      const idx = Number(node.dataset.idx);
+      if (node.classList.contains('tl-removed')) {
+        removeIdx.add(idx);
+        return;
+      }
+      const dateEl = node.querySelector('[data-field="date"]');
+      const personEl = node.querySelector('[data-field="person"]');
+      const summaryEl = node.querySelector('[data-field="summary"]');
+      loadedTimelineData.entries[idx] = {
+        ...loadedTimelineData.entries[idx],
+        date: dateEl.textContent.trim(),
+        person: personEl.textContent.trim(),
+        summary: summaryEl.textContent.trim()
+      };
+    });
+    loadedTimelineData.entries = loadedTimelineData.entries.filter((_, idx) => !removeIdx.has(idx));
+
+    await writeProjectsFile(loadedTimelineData, loadedTimelineSha, '手动编辑项目进展');
+    projectStatus.style.color = 'var(--accent)';
+    projectStatus.textContent = '保存成功';
+    viewProjectsBtn.click(); // 重新加载一次，刷新显示和下标
+  } catch (err) {
+    projectStatus.style.color = 'var(--warn)';
+    projectStatus.textContent = '保存失败：' + err.message;
+  } finally {
+    saveTimelineBtn.disabled = false;
   }
 });
 </script>
