@@ -2,6 +2,51 @@
   "source": "Server酱日报",
   "todos": [
     {
+      "id": "serverchan_20260814_01",
+      "text": "学习如何有效处理客户投诉，提升客户满意度，增强信任",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_02",
+      "text": "根据评分标准制定面试流程，提高招聘效率和质量",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_03",
+      "text": "结合行业特点，优化排班和培训，提升客户服务体验",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_04",
+      "text": "评估并引入适合团队的AI工具，提高服务效率和客户满意度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_05",
+      "text": "选择合适的票务系统，提高客户问题处理速度和准确性",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_06",
+      "text": "制定应对负面评论的策略，维护品牌形象",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_07",
+      "text": "优化团队收件箱管理流程，提高工作效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_08",
+      "text": "选择合适的电子邮件提供商，确保数据安全",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260814_09",
+      "text": "选择适合团队的沟通软件，提高患者满意度",
+      "due": "YYYY-MM-DD"
+    },
+    {
       "id": "idea_2026_08_06T13_59_39_055Z",
       "text": "〔其他〕然后再研究一下Meta推出music code. AI代理助手，看一下这个东西是怎么用的"
     },
