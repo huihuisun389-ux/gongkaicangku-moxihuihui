@@ -2,49 +2,119 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260817_01",
-      "text": "跟进AI行业动态报道",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_01",
+      "text": "跟进共生知行发布人形机器人赛车Demo",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_02",
-      "text": "学习处理客户投诉技巧",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_02",
+      "text": "回复人形机器人打国球新闻",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_03",
-      "text": "制定招聘评分标准",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_03",
+      "text": "提交世界模型进入“有声时代”解读",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_04",
-      "text": "优化团队工作流程",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_04",
+      "text": "跟进范式PhanRouter上线智谱GLM-5.3",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_05",
-      "text": "选择电子邮件票务系统",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_05",
+      "text": "回复全球最大「Token中转站」OpenRouter被收购新闻",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_06",
-      "text": "引入AI聊天机器人",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_06",
+      "text": "跟进菲尔兹奖得主AI突破数学猜想解读",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_07",
-      "text": "实施客户服务改进措施",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_07",
+      "text": "回复Fable 5夺冠AI科研大赛新闻",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_08",
-      "text": "制定负面评论处理流程",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_08",
+      "text": "处理AI不是比人聪明，是输得起！解读",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260817_09",
-      "text": "关注AI技术发展",
-      "due": "2026-08-16"
+      "id": "serverchan_20260818_09",
+      "text": "跟进AI视频运镜玄学已破解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_10",
+      "text": "回复Stripe收购AI gateway startup OpenRouter新闻",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_11",
+      "text": "跟进EY将实习项目延长至一年政策",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_12",
+      "text": "处理从Claude隐形水印回望GenAI时代信息隐藏研究",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_13",
+      "text": "处理Building an AI Text Detector研究",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_14",
+      "text": "跟进Cumora跨平台团队聊天工具研究",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_15",
+      "text": "应用处理客户投诉并赢得信任解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_16",
+      "text": "应用支持团队招聘评分标准解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_17",
+      "text": "应用7个提升银行行业客户服务的方法解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_18",
+      "text": "应用7个处理负面在线评论的技巧解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_19",
+      "text": "应用7个医疗团队邮箱管理技巧解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_20",
+      "text": "应用7个最佳AI聊天机器人和代理解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_21",
+      "text": "应用7个最佳电子邮件票务系统解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_22",
+      "text": "应用2026年最佳HIPAA合规电子邮件提供商解读",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260818_23",
+      "text": "应用2026年最佳患者沟通软件解读",
+      "due": "YYYY-MM-DD"
     },
     {
       "id": "idea_2026_08_06T13_59_39_055Z",
