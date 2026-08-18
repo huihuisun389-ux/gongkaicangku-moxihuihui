@@ -2,118 +2,133 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260818_01",
-      "text": "跟进共生知行发布人形机器人赛车Demo",
+      "id": "serverchan_20260819_01",
+      "text": "跟进网易传媒蜜蜂AI发布情况",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_02",
-      "text": "回复人形机器人打国球新闻",
+      "id": "serverchan_20260819_02",
+      "text": "了解阿里AI音乐模型HappyShrimp应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_03",
-      "text": "提交世界模型进入“有声时代”解读",
+      "id": "serverchan_20260819_03",
+      "text": "关注Vibe Gaming AI Agent在游戏开发中的应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_04",
-      "text": "跟进范式PhanRouter上线智谱GLM-5.3",
+      "id": "serverchan_20260819_04",
+      "text": "了解阿里千问办公与企业微信整合情况",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_05",
-      "text": "回复全球最大「Token中转站」OpenRouter被收购新闻",
+      "id": "serverchan_20260819_05",
+      "text": "关注谷歌A2A项目在Agentic AI Foundation的发展",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_06",
-      "text": "跟进菲尔兹奖得主AI突破数学猜想解读",
+      "id": "serverchan_20260819_06",
+      "text": "关注比亚迪新能源领域实力展示",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_07",
-      "text": "回复Fable 5夺冠AI科研大赛新闻",
+      "id": "serverchan_20260819_07",
+      "text": "研究Anthropic 650亿美元营收背后的市场潜力",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_08",
-      "text": "处理AI不是比人聪明，是输得起！解读",
+      "id": "serverchan_20260819_08",
+      "text": "关注黄仁勋投资AI超级工厂及OpenAI在AI领域的地位",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_09",
-      "text": "跟进AI视频运镜玄学已破解读",
+      "id": "serverchan_20260819_09",
+      "text": "关注Etched估值翻倍的市场潜力",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_10",
-      "text": "回复Stripe收购AI gateway startup OpenRouter新闻",
+      "id": "serverchan_20260819_10",
+      "text": "研究中国团队在仿真技术领域的最新成果",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_11",
-      "text": "跟进EY将实习项目延长至一年政策",
+      "id": "serverchan_20260819_11",
+      "text": "了解浙大开源PhyEdit的功能和应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_12",
-      "text": "处理从Claude隐形水印回望GenAI时代信息隐藏研究",
+      "id": "serverchan_20260819_12",
+      "text": "关注GPT-6代号泄露及发布情况",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_13",
-      "text": "处理Building an AI Text Detector研究",
+      "id": "serverchan_20260819_13",
+      "text": "关注ChatGPT在司法领域的应用案例",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_14",
-      "text": "跟进Cumora跨平台团队聊天工具研究",
+      "id": "serverchan_20260819_14",
+      "text": "研究AI起草法案对政策制定的影响",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_15",
-      "text": "应用处理客户投诉并赢得信任解读",
+      "id": "serverchan_20260819_15",
+      "text": "学习处理客户投诉的沟通技巧",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_16",
-      "text": "应用支持团队招聘评分标准解读",
+      "id": "serverchan_20260819_16",
+      "text": "制定标准化投诉处理流程",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_17",
-      "text": "应用7个提升银行行业客户服务的方法解读",
+      "id": "serverchan_20260819_17",
+      "text": "培训员工掌握有效沟通技巧",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_18",
-      "text": "应用7个处理负面在线评论的技巧解读",
+      "id": "serverchan_20260819_18",
+      "text": "了解银行行业提升客户服务的策略",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_19",
-      "text": "应用7个医疗团队邮箱管理技巧解读",
+      "id": "serverchan_20260819_19",
+      "text": "建立支持岗位的招聘评分标准",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_20",
-      "text": "应用7个最佳AI聊天机器人和代理解读",
+      "id": "serverchan_20260819_20",
+      "text": "掌握处理负面评论的方法",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_21",
-      "text": "应用7个最佳电子邮件票务系统解读",
+      "id": "serverchan_20260819_21",
+      "text": "优化医疗团队管理技巧",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_22",
-      "text": "应用2026年最佳HIPAA合规电子邮件提供商解读",
+      "id": "serverchan_20260819_22",
+      "text": "了解AI聊天机器人和代理",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260818_23",
-      "text": "应用2026年最佳患者沟通软件解读",
+      "id": "serverchan_20260819_23",
+      "text": "选择合适的电子邮件票务系统",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260819_24",
+      "text": "了解符合HIPAA标准的电子邮件提供商",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260819_25",
+      "text": "选择适合患者沟通的软件",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260819_26",
+      "text": "探讨AI在客户支持中的应用及影响",
       "due": "YYYY-MM-DD"
     },
     {
@@ -143,6 +158,18 @@
     {
       "id": "idea_2026_08_16T09_46_37_652Z",
       "text": "〔其他〕开发一个就是把小朋友的作业，或者是通过复制粘贴，或者是通过拍照的这种形式粘贴进来之后就可以就可以。导入进去，然后通过什么方法让小朋友既可以完成作业，又可以对这个学习感兴趣。搭建的这个页面就类似于就是游戏类型的界面，比如说植物大战僵尸类型的，奥特曼类型的，或者是现在小朋友最流行最喜欢的这种的游戏类型的"
+    },
+    {
+      "id": "idea_2026_08_18T15_33_27_971Z",
+      "text": "〔其他〕先整理一下C盘和D盘，C盘主要是Cursor，问问一下Cursor里面的聊天记录，我先给他备份出来，以MD的形式备份出来，然后看一下，如果我要调取每一个，每一个聊天记录的话，让它生成，让他分别告诉我文件夹的路径，最好是可以又快捷，类似于scar那种的调取方式，地盘主要老师把隔离区筛一遍，然后把今天没有完成的已经修复完的问题验证一下啊，需要跳转到网页的，都设置成谷歌默认打开"
+    },
+    {
+      "id": "idea_2026_08_18T15_34_01_009Z",
+      "text": "〔其他〕然后主要是验证一下代办的那一些AI的工具模型。能接入到点击里面都接入到点击里面，验证一下哪些可用，如果有时间的话，再看一下制度能交付，在调整优化一下"
+    },
+    {
+      "id": "idea_2026_08_18T15_40_03_047Z",
+      "text": "〔其他〕把平台运维里面项目底下的小板块也设置成可以折叠的形式。然后在本地线索当中搜一下skill，看看能不能搜索出Cursor，Cloud, 还有get up里面的skill信息，看看准不准"
     }
   ]
 }
