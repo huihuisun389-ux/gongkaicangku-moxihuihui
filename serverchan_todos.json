@@ -2,134 +2,94 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260819_01",
-      "text": "跟进网易传媒蜜蜂AI发布情况",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_01",
+      "text": "跟进人形机器人自主乒乓球对局进展",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_02",
-      "text": "了解阿里AI音乐模型HappyShrimp应用",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_02",
+      "text": "关注360在AI安全领域的应用",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_03",
-      "text": "关注Vibe Gaming AI Agent在游戏开发中的应用",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_03",
+      "text": "关注Anthropic的万亿IPO动态",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_04",
-      "text": "了解阿里千问办公与企业微信整合情况",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_04",
+      "text": "关注AI在具身智能领域的应用",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_05",
-      "text": "关注谷歌A2A项目在Agentic AI Foundation的发展",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_05",
+      "text": "关注机器人训练数据的新解法",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_06",
-      "text": "关注比亚迪新能源领域实力展示",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_06",
+      "text": "关注行业人才流动情况",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_07",
-      "text": "研究Anthropic 650亿美元营收背后的市场潜力",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_07",
+      "text": "关注AI在消费领域的应用",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_08",
-      "text": "关注黄仁勋投资AI超级工厂及OpenAI在AI领域的地位",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_08",
+      "text": "关注AI与材料科学的结合研究",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_09",
-      "text": "关注Etched估值翻倍的市场潜力",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_09",
+      "text": "关注AI在科研领域的应用",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_10",
-      "text": "研究中国团队在仿真技术领域的最新成果",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_10",
+      "text": "关注日本AI训练数据披露政策",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_11",
-      "text": "了解浙大开源PhyEdit的功能和应用",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_11",
+      "text": "学习Lyft、Square和Google的客户反馈经验",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_12",
-      "text": "关注GPT-6代号泄露及发布情况",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_12",
+      "text": "提升银行行业客户服务技巧",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_13",
-      "text": "关注ChatGPT在司法领域的应用案例",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_13",
+      "text": "建立招聘评分标准",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_14",
-      "text": "研究AI起草法案对政策制定的影响",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_14",
+      "text": "处理负面在线评论技巧",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_15",
-      "text": "学习处理客户投诉的沟通技巧",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_15",
+      "text": "管理医疗团队效率技巧",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_16",
-      "text": "制定标准化投诉处理流程",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_16",
+      "text": "选择AI聊天机器人和代理",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_17",
-      "text": "培训员工掌握有效沟通技巧",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_17",
+      "text": "选择电子邮件票务系统",
+      "due": "2026-08-04"
     },
     {
-      "id": "serverchan_20260819_18",
-      "text": "了解银行行业提升客户服务的策略",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_19",
-      "text": "建立支持岗位的招聘评分标准",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_20",
-      "text": "掌握处理负面评论的方法",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_21",
-      "text": "优化医疗团队管理技巧",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_22",
-      "text": "了解AI聊天机器人和代理",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_23",
-      "text": "选择合适的电子邮件票务系统",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_24",
-      "text": "了解符合HIPAA标准的电子邮件提供商",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_25",
-      "text": "选择适合患者沟通的软件",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260819_26",
-      "text": "探讨AI在客户支持中的应用及影响",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260820_18",
+      "text": "选择HIPAA合规电子邮件提供商",
+      "due": "2026-08-04"
     },
     {
       "id": "idea_2026_08_06T13_59_39_055Z",
@@ -170,6 +130,10 @@
     {
       "id": "idea_2026_08_18T15_40_03_047Z",
       "text": "〔其他〕把平台运维里面项目底下的小板块也设置成可以折叠的形式。然后在本地线索当中搜一下skill，看看能不能搜索出Cursor，Cloud, 还有get up里面的skill信息，看看准不准"
+    },
+    {
+      "id": "idea_2026_08_19T12_30_24_865Z",
+      "text": "〔其他〕结合我让你查我昨天让你查的一些大模型的信息，帮我分析一下哪一些模型可以使用在circle里面，并且它是免费的。也就是说，我在我如果是不付费，不按月付费Cursor的时候，我也可以使用这个窗口来修复一些东西，只不过是不用Cursor的大模型，嗯，接入一些免费的模型，嗯，帮我看一下能不能实现。另外，再帮我将，我的个人就是业务中的个人知识管理，结合这个3年规划，嗯，帮我输出一份我的个人知识管理的一个分享或者是总结或者是报告。然后结合我现在目前做的所有的工作和这个3年规划，帮我输出一份我的规划总结和今年的一个总结报告，包括一个评优的资料。这部分你可以在原有的基础上去做这个优化，也可以新生成"
     }
   ]
 }
