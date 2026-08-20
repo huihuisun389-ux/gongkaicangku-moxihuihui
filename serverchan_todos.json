@@ -2,94 +2,49 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260820_01",
-      "text": "跟进人形机器人自主乒乓球对局进展",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_01",
+      "text": "跟进AI在教育领域的应用潜力",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_02",
-      "text": "关注360在AI安全领域的应用",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_02",
+      "text": "确认AI在内容创作领域的应用情况",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_03",
-      "text": "关注Anthropic的万亿IPO动态",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_03",
+      "text": "提交AI自我学习的研究成果",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_04",
-      "text": "关注AI在具身智能领域的应用",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_04",
+      "text": "处理AI在媒体领域的应用方法",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_05",
-      "text": "关注机器人训练数据的新解法",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_05",
+      "text": "跟进AI在商业用户领域的增长情况",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_06",
-      "text": "关注行业人才流动情况",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_06",
+      "text": "确认AI在隐私保护方面的措施",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_07",
-      "text": "关注AI在消费领域的应用",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_07",
+      "text": "处理AI在客户服务效率的提升",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_08",
-      "text": "关注AI与材料科学的结合研究",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_08",
+      "text": "提交AI聊天机器人和代理的评估报告",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260820_09",
-      "text": "关注AI在科研领域的应用",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_10",
-      "text": "关注日本AI训练数据披露政策",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_11",
-      "text": "学习Lyft、Square和Google的客户反馈经验",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_12",
-      "text": "提升银行行业客户服务技巧",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_13",
-      "text": "建立招聘评分标准",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_14",
-      "text": "处理负面在线评论技巧",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_15",
-      "text": "管理医疗团队效率技巧",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_16",
-      "text": "选择AI聊天机器人和代理",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_17",
-      "text": "选择电子邮件票务系统",
-      "due": "2026-08-04"
-    },
-    {
-      "id": "serverchan_20260820_18",
-      "text": "选择HIPAA合规电子邮件提供商",
-      "due": "2026-08-04"
+      "id": "serverchan_20260821_09",
+      "text": "确认HIPAA合规电子邮件提供商的选择",
+      "due": "YYYY-MM-DD"
     },
     {
       "id": "idea_2026_08_06T13_59_39_055Z",
