@@ -2,164 +2,109 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260822_01",
-      "text": "跟进自动驾驶轻卡落地情况",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_01",
+      "text": "跟进优必选在WRC的应用展示",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_02",
-      "text": "确认明略科技与海康机器人的合作进展",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_02",
+      "text": "了解伽利略机器人陆行具身系统",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_03",
-      "text": "提交雷鸟iO发布报告",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_03",
+      "text": "研究魔法原子在WRC的物理AI应用",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_04",
-      "text": "处理机器人GPT-3的应用案例",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_04",
+      "text": "关注00后清华博士生神经接口技术",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_05",
-      "text": "跟进深势科技AI实验流程",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_05",
+      "text": "学习Eon团队使用LIF技术上传果蝇脑",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_06",
-      "text": "确认中坚科技巨型概念机器人ZERO的展示效果",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_06",
+      "text": "观察全球首场人机网球赛",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_07",
-      "text": "催办WRC机器人家务功能测试报告",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_07",
+      "text": "分析机器狗人形化设计创新",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_08",
-      "text": "提交国产预制算力应用分析",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_08",
+      "text": "了解Anthropic团队自用AI秘籍",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_09",
-      "text": "跟进Jeff Dean离职后的行业动态",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_09",
+      "text": "探讨星海图与产业朋友圈共探具身智能方向",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_10",
-      "text": "回复失业小哥复刻AMD芯片的代码",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_10",
+      "text": "关注英伟达AI在ARC-AGI-3测试表现",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_11",
-      "text": "处理AI在医疗领域的应用案例",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_11",
+      "text": "评估OpenAI对加州AI安全法案的建议",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_12",
-      "text": "分析AI在编程领域的应用影响",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_12",
+      "text": "研究AI生成数学的危机",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_13",
-      "text": "评估AI数据中心的环境影响",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_13",
+      "text": "分享Lyft、Square和Google客户反馈经验",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_14",
-      "text": "研究生成式AI对劳动力市场的影响",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_14",
+      "text": "学习7种提升银行行业客户服务的方法",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_15",
-      "text": "关注AI与数学领域的最新研究成果",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_15",
+      "text": "评估支持团队招聘评估标准",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_16",
-      "text": "跟进开源AI技术的普及应用",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_16",
+      "text": "探索AI在金融服务客户服务中的应用",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_17",
-      "text": "分析AI在创意领域的应用案例",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_17",
+      "text": "选择适合团队的AI聊天机器人和代理",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_18",
-      "text": "利用AI技术提高学习效率",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_18",
+      "text": "学习处理客户投诉赢得信任的方法",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_19",
-      "text": "探讨AI技术的伦理和哲学问题",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_19",
+      "text": "借鉴应对负面在线评论的技巧",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_20",
-      "text": "关注AI在版权和知识产权领域的应用",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_20",
+      "text": "应用医疗收件箱管理技巧",
+      "due": "2026-08-22"
     },
     {
-      "id": "serverchan_20260822_21",
-      "text": "学习Lyft、Square和Google的客户反馈处理方式",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_22",
-      "text": "实施7种提升银行行业客户服务的方法",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_23",
-      "text": "建立支持招聘的评分标准",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_24",
-      "text": "掌握处理负面在线评论的技巧",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_25",
-      "text": "应用7种医疗团队邮箱管理技巧",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_26",
-      "text": "选择2026年最佳HIPAA合规电子邮件提供商",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_27",
-      "text": "了解7款最佳AI聊天机器人和客服代理",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_28",
-      "text": "处理客户投诉并赢得更多信任",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_29",
-      "text": "探讨AI在客户支持中的应用及其影响",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_30",
-      "text": "选择7款最佳电子邮件票务系统",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_31",
-      "text": "使用Help Scout原生短信功能",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260822_32",
-      "text": "评估Help Scout的MCP服务器性能",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260823_21",
+      "text": "选择符合行业规范的电子邮件服务提供商",
+      "due": "2026-08-22"
     },
     {
       "id": "idea_2026_08_06T13_59_39_055Z",
