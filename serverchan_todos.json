@@ -2,98 +2,123 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260825_01",
-      "text": "跟进Visa大中华区总裁张文翊AI重塑商业的观点",
+      "id": "serverchan_20260826_01",
+      "text": "跟进具身AI发展计划",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_02",
-      "text": "关注阿里视频大模型Wan3.0上线情况",
+      "id": "serverchan_20260826_02",
+      "text": "关注国产AI大模型应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_03",
-      "text": "了解阿里达摩院肝癌AI模型的应用",
+      "id": "serverchan_20260826_03",
+      "text": "学习AI项目化应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_04",
-      "text": "关注中诚华隆HL200推理芯片及超节点集群发布",
+      "id": "serverchan_20260826_04",
+      "text": "关注开源AI模型应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_05",
-      "text": "准备AFAC2026金融智能创新大赛总决赛路演",
-      "due": "2026-08-25"
-    },
-    {
-      "id": "serverchan_20260825_06",
-      "text": "研究WRC 2026原生全模态世界模型议题",
+      "id": "serverchan_20260826_05",
+      "text": "关注AI在空间推理应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_07",
-      "text": "关注Hugging Face可能被出售的消息",
+      "id": "serverchan_20260826_06",
+      "text": "关注机器人产品在家庭领域应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_08",
-      "text": "学习AI科研评价规则的新论文",
+      "id": "serverchan_20260826_07",
+      "text": "关注AI在教育领域应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_09",
-      "text": "关注Claude模型解决数学悬案进展",
+      "id": "serverchan_20260826_08",
+      "text": "关注AI出海趋势",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_10",
-      "text": "组织客服团队讨论客户反馈案例",
+      "id": "serverchan_20260826_09",
+      "text": "关注AI在投资领域应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_11",
-      "text": "设计针对性银行行业客服培训课程",
+      "id": "serverchan_20260826_10",
+      "text": "关注AI产品用户体验",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_12",
-      "text": "使用支持团队招聘评分标准筛选候选人",
+      "id": "serverchan_20260826_11",
+      "text": "关注我国AI领域研究进展",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_13",
-      "text": "调整呼叫中心排班策略",
+      "id": "serverchan_20260826_12",
+      "text": "关注开源数据资源",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_14",
-      "text": "研究AI在金融服务客户服务中的应用",
+      "id": "serverchan_20260826_13",
+      "text": "关注AI硬件发展",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_15",
-      "text": "培训客服团队处理投诉技巧",
+      "id": "serverchan_20260826_14",
+      "text": "关注AI在金融领域应用风险",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_16",
-      "text": "培训客服团队应对负面在线评论技巧",
+      "id": "serverchan_20260826_15",
+      "text": "关注AI在芯片设计应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_17",
-      "text": "优化医疗团队邮箱管理流程",
+      "id": "serverchan_20260826_16",
+      "text": "关注AI在医疗领域应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_18",
-      "text": "选择符合HIPAA标准的电子邮件提供商",
+      "id": "serverchan_20260826_17",
+      "text": "关注AI对入门级职位影响",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260825_19",
-      "text": "实施呼叫中心班次竞标机制",
+      "id": "serverchan_20260826_18",
+      "text": "学习客户反馈经验",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260826_19",
+      "text": "提升银行行业客户服务质量",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260826_20",
+      "text": "优化呼叫中心班次投标流程",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260826_21",
+      "text": "处理客户投诉并增强品牌信任度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260826_22",
+      "text": "处理负面在线评论并维护品牌形象",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260826_23",
+      "text": "提高医疗团队邮箱管理效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260826_24",
+      "text": "选择合适的电子邮件提供商确保信息安全合规",
       "due": "YYYY-MM-DD"
     },
     {
