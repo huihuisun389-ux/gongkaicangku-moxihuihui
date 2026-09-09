@@ -2,94 +2,39 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260908_01",
-      "text": "跟进GPT-6 Sol版本速度提升情况",
-      "due": "2026-09-30"
+      "id": "serverchan_20260909_01",
+      "text": "了解自动化工具使用时机和方法",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260908_02",
-      "text": "关注菲尔兹奖得主参与的大模型项目",
-      "due": "2026-09-30"
+      "id": "serverchan_20260909_02",
+      "text": "运用客户沟通技巧和最佳实践",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260908_03",
-      "text": "关注会合体机器人在全球的销售情况",
-      "due": "2026-09-30"
+      "id": "serverchan_20260909_03",
+      "text": "学习客户反馈处理成功案例",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260908_04",
-      "text": "了解智象发布的具身世界模型HiDream-O1-Embodied",
-      "due": "2026-09-30"
+      "id": "serverchan_20260909_04",
+      "text": "确保团队以客户为中心",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260908_05",
-      "text": "研究千问办公的多人工作台功能",
-      "due": "2026-09-30"
+      "id": "serverchan_20260909_05",
+      "text": "优化团队工作流程提高响应速度",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260908_06",
-      "text": "关注GOSIM Shenzhen 2026全议程",
-      "due": "2026-09-30"
+      "id": "serverchan_20260909_06",
+      "text": "制定支持人员招聘标准",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260908_07",
-      "text": "关注英伟达CEO的巨额投资动态",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_08",
-      "text": "关注中国公司在AI领域的突破",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_09",
-      "text": "研究Anthropic AI证明费马大定理的过程",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_10",
-      "text": "了解Google DeepMind的WeatherNext 3模型",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_11",
-      "text": "组织客服人员培训客户沟通技巧",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_12",
-      "text": "分析Lyft、Square和Google的客户反馈案例",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_13",
-      "text": "借鉴Merki Market缩短响应时间的经验",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_14",
-      "text": "强调团队培训中的客户中心性理念",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_15",
-      "text": "制定团队招聘标准",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_16",
-      "text": "介绍Help Scout的短信功能",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_17",
-      "text": "根据方法提升银行行业客户服务质量",
-      "due": "2026-09-30"
-    },
-    {
-      "id": "serverchan_20260908_18",
-      "text": "培训客服人员处理客户投诉",
-      "due": "2026-09-30"
+      "id": "serverchan_20260909_07",
+      "text": "考虑引入AI技术提高服务效率",
+      "due": "YYYY-MM-DD"
     },
     {
       "id": "idea_2026_08_08T04_34_36_050Z",
