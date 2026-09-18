@@ -2,139 +2,119 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260917_01",
-      "text": "跟进ZDTaichu5.0-9B开源情况",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_01",
+      "text": "跟进vivo AI手机性能提升情况",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_02",
-      "text": "参加AI产业生态大会",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_02",
+      "text": "关注Claude双入口合并和原生Office上线",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_03",
-      "text": "关注OpenAI GPT-6 Sol动态",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_03",
+      "text": "关注SkyProduction天工工作台中秋国庆福利",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_04",
-      "text": "了解中国9B「全能王」开源信息",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_04",
+      "text": "关注央企通用Agent在IDC实测表现",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_05",
-      "text": "关注高通与中兴努比亚合作进展",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_05",
+      "text": "关注马斯克AI基建行动",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_06",
-      "text": "关注飞书+豆包工作智能化升级",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_06",
+      "text": "关注前OpenAI副总裁硬核难题突破",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_07",
-      "text": "关注B站AI无限竞技场活动",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_07",
+      "text": "关注奥特曼后Astra模型进展",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_08",
-      "text": "关注Gemini 3.8 Live上线情况",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_08",
+      "text": "关注OpenAI雪藏证明事件",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_09",
-      "text": "关注量子位2026人工智能年度榜单",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_09",
+      "text": "关注Anthropic Claude模型进展",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_10",
-      "text": "关注杭州团队AI for Science进展",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_10",
+      "text": "关注华为Ascend 960 SuperPoD NPO技术",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_11",
-      "text": "关注自进化社媒Agent研究",
-      "due": "2026-09-04"
-    },
-    {
-      "id": "serverchan_20260917_12",
-      "text": "关注AI安全评估重要性",
-      "due": "2026-09-04"
-    },
-    {
-      "id": "serverchan_20260917_13",
-      "text": "关注AI助手控制智能家居设备",
-      "due": "2026-09-04"
-    },
-    {
-      "id": "serverchan_20260917_14",
-      "text": "关注AI技术在机器人领域的应用",
-      "due": "2026-09-04"
-    },
-    {
-      "id": "serverchan_20260917_15",
-      "text": "关注AI行业监管看法",
-      "due": "2026-09-04"
-    },
-    {
-      "id": "serverchan_20260917_16",
-      "text": "关注苹果公司AI服务器研发",
-      "due": "2026-09-04"
-    },
-    {
-      "id": "serverchan_20260917_17",
+      "id": "serverchan_20260918_11",
       "text": "学习客户沟通最佳实践",
-      "due": "2026-09-04"
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_18",
-      "text": "了解AI辅助支持团队案例",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_12",
+      "text": "学习AIHR团队服务25000名成员经验",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_19",
-      "text": "学习EasyBroker团队优化经验",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_13",
+      "text": "学习EasyBroker排班和人力资源优化策略",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_20",
-      "text": "学习客户反馈处理方法",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_14",
+      "text": "分析Lyft、Square和Google客户反馈经验",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_21",
-      "text": "学习银行行业服务提升方法",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_15",
+      "text": "了解银行行业客户服务提升方法",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_22",
-      "text": "理解客户中心化理念",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_16",
+      "text": "强调客户中心性在服务中的重要性",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_23",
-      "text": "建立支持团队招聘标准",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_17",
+      "text": "明确客户支持招聘标准",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_24",
-      "text": "提升客户服务信任度",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_18",
+      "text": "学习客户服务自动化沟通的正确与错误方式",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_25",
-      "text": "了解自动化客户沟通方法",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_19",
+      "text": "学习Merki Market利用AI缩短响应时间",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_26",
-      "text": "了解Help Scout客户门户",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_20",
+      "text": "关注客服人员解决问题能力",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260917_27",
-      "text": "了解Help Scout原生短信功能",
-      "due": "2026-09-04"
+      "id": "serverchan_20260918_21",
+      "text": "学习客户沟通技巧和最佳实践",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260918_22",
+      "text": "了解Help Scout客户门户功能",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260918_23",
+      "text": "学习原生短信功能在Help Scout的应用",
+      "due": "YYYY-MM-DD"
     },
     {
       "id": "idea_2026_08_08T04_34_36_050Z",
