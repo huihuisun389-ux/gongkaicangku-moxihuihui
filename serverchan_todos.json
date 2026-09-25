@@ -2,6 +2,116 @@
   "source": "Server酱日报",
   "todos": [
     {
+      "id": "serverchan_20260925_01",
+      "text": "跟进AI助手在商务场景中的应用情况",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_02",
+      "text": "确认GLOW技术报告的机器人学习能力",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_03",
+      "text": "提交高性能显卡在AI推理中的应用案例",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_04",
+      "text": "处理高性能显示设备在AI视觉应用中的效果",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_05",
+      "text": "关注AI经济基础设施的构建进展",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_06",
+      "text": "跟进高性能CPU在AI领域的应用情况",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_07",
+      "text": "处理AI领域的学术研究成果",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_08",
+      "text": "提交强化学习数据策略优化方案",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_09",
+      "text": "关注中国在AI领域的突破性进展",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_10",
+      "text": "跟进AI领域的政策变化",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_11",
+      "text": "学习客户沟通最佳实践",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_12",
+      "text": "借鉴AIHR的团队支持经验",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_13",
+      "text": "学习EasyBroker的团队优化方法",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_14",
+      "text": "分析客户反馈案例",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_15",
+      "text": "提升银行行业客户服务方法",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_16",
+      "text": "实践客户中心性原则",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_17",
+      "text": "掌握自动化沟通的正确方式",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_18",
+      "text": "关注客户服务信任度问题",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_19",
+      "text": "选择适合团队的移动应用",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_20",
+      "text": "优化Merki Market的响应时间",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_21",
+      "text": "学习EmailOctopus的AI支持经验",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260925_22",
+      "text": "了解客户门户功能",
+      "due": "YYYY-MM-DD"
+    },
+    {
       "id": "idea_2026_08_08T04_34_36_050Z",
       "text": "〔其他〕王宁的项目跟踪系统的罗姐好像是说每一个项目。他这个项目跟进系统是手动填的嘛？然后他的周报里面其实是导入了这个系统，然后提取了这个项目本周的一些跟进进度。它的这个项目跟进系统应该是一个代办的形式，想一下我的什么场景可以用得到。然后协同的这个系统应该是它整个知识管理的这一个项目，每个人的分工不一样，做了什么来做，来做一个协同"
     }
