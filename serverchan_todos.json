@@ -2,113 +2,133 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260925_01",
-      "text": "跟进AI助手在商务场景中的应用情况",
+      "id": "serverchan_20260926_01",
+      "text": "跟进AlphaGo在足球领域的应用案例研究",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_02",
-      "text": "确认GLOW技术报告的机器人学习能力",
+      "id": "serverchan_20260926_02",
+      "text": "评估GPT-6推理能力提升对职场决策的影响",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_03",
-      "text": "提交高性能显卡在AI推理中的应用案例",
+      "id": "serverchan_20260926_03",
+      "text": "了解ChatGPT Pro Max套餐的功能和适用性",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_04",
-      "text": "处理高性能显示设备在AI视觉应用中的效果",
+      "id": "serverchan_20260926_04",
+      "text": "研究中国AI芯片开源对AI应用的影响",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_05",
-      "text": "关注AI经济基础设施的构建进展",
+      "id": "serverchan_20260926_05",
+      "text": "分析Kimi浏览器插件对工作效率的提升",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_06",
-      "text": "跟进高性能CPU在AI领域的应用情况",
+      "id": "serverchan_20260926_06",
+      "text": "关注华为大模型创业的物理世界Scaling Law",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_07",
-      "text": "处理AI领域的学术研究成果",
+      "id": "serverchan_20260926_07",
+      "text": "评估OpenAI事件对AI安全监管的启示",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_08",
-      "text": "提交强化学习数据策略优化方案",
+      "id": "serverchan_20260926_08",
+      "text": "学习Meta的困境，关注AI行业挑战",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_09",
-      "text": "关注中国在AI领域的突破性进展",
+      "id": "serverchan_20260926_09",
+      "text": "总结中国智能产业发展趋势，制定应对策略",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_10",
-      "text": "跟进AI领域的政策变化",
+      "id": "serverchan_20260926_10",
+      "text": "研究智能体发展对AI领域研究的启示",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_11",
-      "text": "学习客户沟通最佳实践",
+      "id": "serverchan_20260926_11",
+      "text": "分析麦当劳AI应用在商业领域的潜力",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_12",
-      "text": "借鉴AIHR的团队支持经验",
+      "id": "serverchan_20260926_12",
+      "text": "学习AI在游戏领域的应用案例",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_13",
-      "text": "学习EasyBroker的团队优化方法",
+      "id": "serverchan_20260926_13",
+      "text": "探索AI在字体设计领域的应用前景",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_14",
-      "text": "分析客户反馈案例",
+      "id": "serverchan_20260926_14",
+      "text": "组织客服人员学习客户沟通技巧",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_15",
-      "text": "提升银行行业客户服务方法",
+      "id": "serverchan_20260926_15",
+      "text": "借鉴AIHR团队支持案例，优化团队结构",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_16",
-      "text": "实践客户中心性原则",
+      "id": "serverchan_20260926_16",
+      "text": "学习EasyBroker团队管理经验，优化排班策略",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_17",
-      "text": "掌握自动化沟通的正确方式",
+      "id": "serverchan_20260926_17",
+      "text": "借鉴Lyft等公司客户反馈最佳实践，建立反馈机制",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_18",
-      "text": "关注客户服务信任度问题",
+      "id": "serverchan_20260926_18",
+      "text": "制定银行行业客户服务提升方案",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_19",
-      "text": "选择适合团队的移动应用",
+      "id": "serverchan_20260926_19",
+      "text": "构建以客户为中心的服务体系",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_20",
-      "text": "优化Merki Market的响应时间",
+      "id": "serverchan_20260926_20",
+      "text": "优化Merki Market的AI技术响应时间",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_21",
-      "text": "学习EmailOctopus的AI支持经验",
+      "id": "serverchan_20260926_21",
+      "text": "学习EmailOctopus利用AI提升客户服务能力",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20260925_22",
-      "text": "了解客户门户功能",
+      "id": "serverchan_20260926_22",
+      "text": "关注客户服务信任度问题，提升服务质量",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260926_23",
+      "text": "推荐并评估客户服务移动应用",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260926_24",
+      "text": "探讨自动化客户沟通的正确方式",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260926_25",
+      "text": "学习SchoolsPLP利用Help Scout优化客户关系管理",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20260926_26",
+      "text": "评估Help Scout客户门户的功能和优势",
       "due": "YYYY-MM-DD"
     },
     {
