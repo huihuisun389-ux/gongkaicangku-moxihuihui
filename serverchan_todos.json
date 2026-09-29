@@ -2,89 +2,59 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20260928_01",
-      "text": "关注AI安全领域新挑战",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_01",
+      "text": "跟进李飞飞创业公司收购情况",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_02",
-      "text": "关注AI技术发展对社会影响",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_02",
+      "text": "关注OpenAI Codex漏洞事件",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_03",
-      "text": "关注AI技术对行业成本影响",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_03",
+      "text": "学习西门子Xcelerator开放生态案例",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_04",
-      "text": "关注AI政策对行业发展重要性",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_04",
+      "text": "了解华为AIDC基础设施定义",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_05",
-      "text": "学习8个客户沟通技巧",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_05",
+      "text": "关注中国AI人才管控政策",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_06",
-      "text": "了解AIHR高效培训方法",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_06",
+      "text": "研究AMD收购World Labs案例",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_07",
-      "text": "学习EasyBroker优化排班案例",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_07",
+      "text": "探讨MIT AI模拟社会验证问题",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_08",
-      "text": "学习以客户为中心的重要性",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_08",
+      "text": "学习客户沟通技巧",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_09",
-      "text": "学习客户反馈的重要性",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_09",
+      "text": "提升团队专业技能",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_10",
-      "text": "了解提升客户服务方法",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_10",
+      "text": "优化客户服务流程",
+      "due": "2026-09-04"
     },
     {
-      "id": "serverchan_20260928_11",
-      "text": "学习Merki Market优化流程经验",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260928_12",
-      "text": "了解EmailOctopus利用AI技术",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260928_13",
-      "text": "探讨客户对客服信任度建立",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260928_14",
-      "text": "学习自动化客户沟通正确方式",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260928_15",
-      "text": "了解最佳客户服务移动应用",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260928_16",
-      "text": "了解SchoolsPLP利用Help Scout",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20260928_17",
-      "text": "了解Help Scout客户门户",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20260929_11",
+      "text": "改进银行业客户服务",
+      "due": "2026-09-04"
     },
     {
       "id": "idea_2026_08_08T04_34_36_050Z",
