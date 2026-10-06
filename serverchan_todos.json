@@ -2,6 +2,96 @@
   "source": "Server酱日报",
   "todos": [
     {
+      "id": "serverchan_20261006_01",
+      "text": "跟进光遗传学在神经科学领域的应用研究进展",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_02",
+      "text": "关注Hinton的RSI论文最新研究动态",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_03",
+      "text": "关注4D世界模型在手机上的应用进展",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_04",
+      "text": "关注Caltech物理AI在基础科学领域的突破",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_05",
+      "text": "关注AI产品的更新迭代，获取新功能",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_06",
+      "text": "关注AI模型的更新，选择适合的模型",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_07",
+      "text": "关注AI在生活中的应用，提高生活品质",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_08",
+      "text": "关注AI行业的数据安全和隐私保护",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_09",
+      "text": "关注AI在沟通领域的应用，提高工作效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_10",
+      "text": "关注AI行业的监管和治理，确保AI技术健康发展",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_11",
+      "text": "选择合适的客户服务移动应用，提升客服效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_12",
+      "text": "运用客户沟通技巧，提升客户满意度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_13",
+      "text": "了解SaaS产品特点，提升客户满意度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_14",
+      "text": "加强团队培训，提升员工个人能力",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_15",
+      "text": "合理安排自动化工具的使用，提高客服效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_16",
+      "text": "制定合理的排班计划，确保客服团队高效运转",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_17",
+      "text": "学习客户反馈处理方法，提升客户满意度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261006_18",
+      "text": "利用客户中心功能，提高客服团队工作效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
       "id": "idea_2026_08_08T04_34_36_050Z",
       "text": "〔其他〕王宁的项目跟踪系统的罗姐好像是说每一个项目。他这个项目跟进系统是手动填的嘛？然后他的周报里面其实是导入了这个系统，然后提取了这个项目本周的一些跟进进度。它的这个项目跟进系统应该是一个代办的形式，想一下我的什么场景可以用得到。然后协同的这个系统应该是它整个知识管理的这一个项目，每个人的分工不一样，做了什么来做，来做一个协同"
     }
