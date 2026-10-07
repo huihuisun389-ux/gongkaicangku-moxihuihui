@@ -2,93 +2,98 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20261006_01",
-      "text": "跟进光遗传学在神经科学领域的应用研究进展",
+      "id": "serverchan_20261007_01",
+      "text": "跟进OpenAI论文研究进展",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_02",
-      "text": "关注Hinton的RSI论文最新研究动态",
+      "id": "serverchan_20261007_02",
+      "text": "关注Claude中文版使用情况",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_03",
-      "text": "关注4D世界模型在手机上的应用进展",
+      "id": "serverchan_20261007_03",
+      "text": "了解Hark助手隐私保护特点",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_04",
-      "text": "关注Caltech物理AI在基础科学领域的突破",
+      "id": "serverchan_20261007_04",
+      "text": "研究Pinterest AI功能应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_05",
-      "text": "关注AI产品的更新迭代，获取新功能",
+      "id": "serverchan_20261007_05",
+      "text": "关注OpenAI疯狂28天活动",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_06",
-      "text": "关注AI模型的更新，选择适合的模型",
+      "id": "serverchan_20261007_06",
+      "text": "学习ChatGPT实名制要求",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_07",
-      "text": "关注AI在生活中的应用，提高生活品质",
+      "id": "serverchan_20261007_07",
+      "text": "关注Lambda公司融资计划",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_08",
-      "text": "关注AI行业的数据安全和隐私保护",
+      "id": "serverchan_20261007_08",
+      "text": "研究AI代理访问网站挑战",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_09",
-      "text": "关注AI在沟通领域的应用，提高工作效率",
+      "id": "serverchan_20261007_09",
+      "text": "了解Mirror Particle行为建模研究",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_10",
-      "text": "关注AI行业的监管和治理，确保AI技术健康发展",
+      "id": "serverchan_20261007_10",
+      "text": "评估Anthropic支持初创公司计划",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_11",
-      "text": "选择合适的客户服务移动应用，提升客服效率",
+      "id": "serverchan_20261007_11",
+      "text": "关注LibreOffice不使用AI功能选项",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_12",
-      "text": "运用客户沟通技巧，提升客户满意度",
+      "id": "serverchan_20261007_12",
+      "text": "关注Mistral新1T模型竞争情况",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_13",
-      "text": "了解SaaS产品特点，提升客户满意度",
+      "id": "serverchan_20261007_13",
+      "text": "学习客户服务移动应用",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_14",
-      "text": "加强团队培训，提升员工个人能力",
+      "id": "serverchan_20261007_14",
+      "text": "应用客户沟通最佳实践",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_15",
-      "text": "合理安排自动化工具的使用，提高客服效率",
+      "id": "serverchan_20261007_15",
+      "text": "探讨SaaS客户成功构建方法",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_16",
-      "text": "制定合理的排班计划，确保客服团队高效运转",
+      "id": "serverchan_20261007_16",
+      "text": "关注人力资源创新学院",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_17",
-      "text": "学习客户反馈处理方法，提升客户满意度",
+      "id": "serverchan_20261007_17",
+      "text": "讨论自动化客户沟通方式",
       "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261006_18",
-      "text": "利用客户中心功能，提高客服团队工作效率",
+      "id": "serverchan_20261007_18",
+      "text": "学习客户反馈案例",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261007_19",
+      "text": "强调客户中心化重要性",
       "due": "YYYY-MM-DD"
     },
     {
