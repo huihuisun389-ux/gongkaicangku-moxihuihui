@@ -2,99 +2,84 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20261007_01",
-      "text": "跟进OpenAI论文研究进展",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_01",
+      "text": "跟进GPT-6免费使用情况",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_02",
-      "text": "关注Claude中文版使用情况",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_02",
+      "text": "回复Claude新模型发布信息",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_03",
-      "text": "了解Hark助手隐私保护特点",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_03",
+      "text": "处理1万亿参数模型测试结果",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_04",
-      "text": "研究Pinterest AI功能应用",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_04",
+      "text": "确认Meshy在a16z榜单位置",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_05",
-      "text": "关注OpenAI疯狂28天活动",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_05",
+      "text": "提交OpenAI数学论文阅读报告",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_06",
-      "text": "学习ChatGPT实名制要求",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_06",
+      "text": "跟进《怪物史莱克》AI影视公司动态",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_07",
-      "text": "关注Lambda公司融资计划",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_07",
+      "text": "处理AI交互体验优化建议",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_08",
-      "text": "研究AI代理访问网站挑战",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_08",
+      "text": "学习OpenAI军事AI应用伦理",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_09",
-      "text": "了解Mirror Particle行为建模研究",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_09",
+      "text": "解读Claude在概率论领域的突破",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_10",
-      "text": "评估Anthropic支持初创公司计划",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_10",
+      "text": "研究AI Pascal's Wager论文",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_11",
-      "text": "关注LibreOffice不使用AI功能选项",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_11",
+      "text": "了解Runtime AI代理研究",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_12",
-      "text": "关注Mistral新1T模型竞争情况",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_12",
+      "text": "学习AI对产品三要素的影响",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_13",
-      "text": "学习客户服务移动应用",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_13",
+      "text": "了解最佳客户服务移动应用",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_14",
-      "text": "应用客户沟通最佳实践",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_14",
+      "text": "学习构建SaaS客户成功策略",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_15",
-      "text": "探讨SaaS客户成功构建方法",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_15",
+      "text": "规划自动化客户沟通策略",
+      "due": "2026-10-01"
     },
     {
-      "id": "serverchan_20261007_16",
-      "text": "关注人力资源创新学院",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20261007_17",
-      "text": "讨论自动化客户沟通方式",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20261007_18",
-      "text": "学习客户反馈案例",
-      "due": "YYYY-MM-DD"
-    },
-    {
-      "id": "serverchan_20261007_19",
-      "text": "强调客户中心化重要性",
-      "due": "YYYY-MM-DD"
+      "id": "serverchan_20261008_16",
+      "text": "学习客户反馈最佳实践",
+      "due": "2026-10-01"
     },
     {
       "id": "idea_2026_08_08T04_34_36_050Z",
