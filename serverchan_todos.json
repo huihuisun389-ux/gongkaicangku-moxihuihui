@@ -2,84 +2,124 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20261008_01",
-      "text": "跟进GPT-6免费使用情况",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_01",
+      "text": "跟进AgentGarten智能体进化情况",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_02",
-      "text": "回复Claude新模型发布信息",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_02",
+      "text": "了解人类数学家抵制OpenAI的原因",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_03",
-      "text": "处理1万亿参数模型测试结果",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_03",
+      "text": "关注GPT-6智能界面上线进展",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_04",
-      "text": "确认Meshy在a16z榜单位置",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_04",
+      "text": "研究谷歌办公Agent应用",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_05",
-      "text": "提交OpenAI数学论文阅读报告",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_05",
+      "text": "关注联想YOGA Pro 15盲约情况",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_06",
-      "text": "跟进《怪物史莱克》AI影视公司动态",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_06",
+      "text": "了解吉利智充技术发布情况",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_07",
-      "text": "处理AI交互体验优化建议",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_07",
+      "text": "关注Natura智能戒指发布",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_08",
-      "text": "学习OpenAI军事AI应用伦理",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_08",
+      "text": "研究正行创新零售物理智能解决方案",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_09",
-      "text": "解读Claude在概率论领域的突破",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_09",
+      "text": "关注保时捷裁员回归燃油车主线情况",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_10",
-      "text": "研究AI Pascal's Wager论文",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_10",
+      "text": "了解Grok Bot接入Claude功能",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_11",
-      "text": "了解Runtime AI代理研究",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_11",
+      "text": "关注Anthropic使用政策更改",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_12",
-      "text": "学习AI对产品三要素的影响",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_12",
+      "text": "研究OpenAI数学解决方案进展",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_13",
-      "text": "了解最佳客户服务移动应用",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_13",
+      "text": "关注Google将agentic AI引入Gemini",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_14",
-      "text": "学习构建SaaS客户成功策略",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_14",
+      "text": "了解Nvidia物理AI应用赌注",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_15",
-      "text": "规划自动化客户沟通策略",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_15",
+      "text": "关注微软AI友好型硬件和Windows更改",
+      "due": "2026-10-10"
     },
     {
-      "id": "serverchan_20261008_16",
-      "text": "学习客户反馈最佳实践",
-      "due": "2026-10-01"
+      "id": "serverchan_20261009_16",
+      "text": "研究AI开发者开源克隆Adobe案例",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_17",
+      "text": "关注Anthropic开源AI安全扫描",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_18",
+      "text": "了解加州关闭机器人与人类笼斗比赛情况",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_19",
+      "text": "学习有效的客户沟通技巧",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_20",
+      "text": "研究自动化沟通的正确方式",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_21",
+      "text": "了解SaaS客户成功构建要素",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_22",
+      "text": "培训团队理解客户中心性",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_23",
+      "text": "研究客服团队排班与人力管理",
+      "due": "2026-10-10"
+    },
+    {
+      "id": "serverchan_20261009_24",
+      "text": "了解行业最佳实践分享",
+      "due": "2026-10-10"
     },
     {
       "id": "idea_2026_08_08T04_34_36_050Z",
