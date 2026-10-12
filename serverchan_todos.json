@@ -2,6 +2,101 @@
   "source": "Server酱日报",
   "todos": [
     {
+      "id": "serverchan_20261012_01",
+      "text": "跟进AI在数学领域的突破应用",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_02",
+      "text": "关注GPT-4o的更新，提升工作效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_03",
+      "text": "了解DeepSeek Bot的使用，提高工作效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_04",
+      "text": "关注智能家居市场新机遇，提升生活品质",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_05",
+      "text": "关注AI算力的提升，适应未来工作需求",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_06",
+      "text": "学习AI技术发展，跟上技术步伐",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_07",
+      "text": "关注AI模拟真人技术，提升人机交互体验",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_08",
+      "text": "关注AI领域的最新动态，了解创新速度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_09",
+      "text": "利用AI工具提高代码质量",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_10",
+      "text": "关注AI行业政策变化，适应行业发展趋势",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_11",
+      "text": "关注丘成桐弟子研究成果，拓宽知识面",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_12",
+      "text": "学习有效的客户沟通技巧，提升客户满意度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_13",
+      "text": "合理利用自动化工具，提高沟通效率，保持个性化服务",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_14",
+      "text": "了解SaaS客户成功的要素，提升客户忠诚度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_15",
+      "text": "通过培训提升客服团队专业技能和软技能，增强团队实力",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_16",
+      "text": "利用工具提高客服人员工作效率，减少重复操作，提升服务质量",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_17",
+      "text": "了解客户对客服的信任度，优化排班策略，提高客户满意度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_18",
+      "text": "将客户至上理念融入日常工作，提升客户体验，增强客户忠诚度",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261012_19",
+      "text": "了解行业最佳实践，为客服团队提供更便捷的工具，提高工作效率",
+      "due": "YYYY-MM-DD"
+    },
+    {
       "id": "idea_2026_08_08T04_34_36_050Z",
       "text": "〔其他〕王宁的项目跟踪系统的罗姐好像是说每一个项目。他这个项目跟进系统是手动填的嘛？然后他的周报里面其实是导入了这个系统，然后提取了这个项目本周的一些跟进进度。它的这个项目跟进系统应该是一个代办的形式，想一下我的什么场景可以用得到。然后协同的这个系统应该是它整个知识管理的这一个项目，每个人的分工不一样，做了什么来做，来做一个协同"
     }
