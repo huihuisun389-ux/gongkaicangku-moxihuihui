@@ -2,6 +2,81 @@
   "source": "Server酱日报",
   "todos": [
     {
+      "id": "serverchan_20261016_01",
+      "text": "跟进千卡超节点算力巨无霸点亮情况",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_02",
+      "text": "了解Anthropic对METR研究人员的新政策",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_03",
+      "text": "评估Bluesky AI-powered Attie app的适用性",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_04",
+      "text": "关注TechCrunch Disrupt 2026的最新AI技术趋势",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_05",
+      "text": "研究Anthropic联创RSI提前到2027的政策影响",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_06",
+      "text": "学习No AI. Just open a book, read it, and code whatever you want",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_07",
+      "text": "探讨What causes AI fatigue for engineers and how to ease the strain",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_08",
+      "text": "观看No More Heroes – Terence Tao Talks to Numberphile About AI",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_09",
+      "text": "学习客户投诉管理技巧",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_10",
+      "text": "评估自动化客户沟通的利弊",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_11",
+      "text": "推荐优秀的客户服务移动应用",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_12",
+      "text": "提升客服团队沟通技巧",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_13",
+      "text": "改善接触中心代理体验",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_14",
+      "text": "了解SaaS客户成功的要素和方法",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261016_15",
+      "text": "探讨客户支持自动化的利弊",
+      "due": "YYYY-MM-DD"
+    },
+    {
       "id": "idea_2026_08_08T04_34_36_050Z",
       "text": "〔其他〕王宁的项目跟踪系统的罗姐好像是说每一个项目。他这个项目跟进系统是手动填的嘛？然后他的周报里面其实是导入了这个系统，然后提取了这个项目本周的一些跟进进度。它的这个项目跟进系统应该是一个代办的形式，想一下我的什么场景可以用得到。然后协同的这个系统应该是它整个知识管理的这一个项目，每个人的分工不一样，做了什么来做，来做一个协同"
     }
