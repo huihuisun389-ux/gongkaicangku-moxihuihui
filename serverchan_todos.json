@@ -2,114 +2,124 @@
   "source": "Server酱日报",
   "todos": [
     {
-      "id": "serverchan_20261028_01",
-      "text": "跟进钛动科技Pro-Agent发布情况",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_01",
+      "text": "跟进蚂蚁百灵Ling-3.1-flash-1019开源情况",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_02",
-      "text": "关注中国数学家攻克数学难题的后续应用",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_02",
+      "text": "回复EMNLP'26研究结果的反馈",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_03",
-      "text": "了解百度开源神作回归的具体细节",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_03",
+      "text": "确认国产AI在OCR领域的突破信息",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_04",
-      "text": "研究OpenAI改写科学史的案例应用",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_04",
+      "text": "处理黄仁勋AI工厂的粮仓问题",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_05",
-      "text": "关注Google Genie 4世界模型的音频功能",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_05",
+      "text": "跟进Claude在癌症研究中的应用",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_06",
-      "text": "加强Anthropic数据安全意识培训",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_06",
+      "text": "处理AI代理泄露敏感信息工具的测试",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_07",
-      "text": "学习亚马逊AI时代开发者角色定义",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_07",
+      "text": "确认触摸屏纤维技术的应用前景",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_08",
-      "text": "提高用户信息安全意识，避免密码泄露",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_08",
+      "text": "开会讨论Chrome扩展的网页抓取优化",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_09",
-      "text": "关注微软AI推动效率提升的自愿离职情况",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_09",
+      "text": "处理MicroZig项目禁止使用LLM和AI的政策",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_10",
-      "text": "研究新型AI驱动的蚊帐在登革热防控中的应用",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_10",
+      "text": "跟进开源SIEM工具的安全监控能力",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_11",
-      "text": "关注德拉瓦AI代理运营企业的政策变化",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_11",
+      "text": "回复纽约时报烹饪应用AI功能的用户反馈",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_12",
-      "text": "了解英伟达支持印度初创公司的AI解决方案",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_12",
+      "text": "处理Siri AI隐私保护功能的设置",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_13",
-      "text": "关注General Compute的A轮融资及云服务可靠性",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_13",
+      "text": "监控AI相关股票的投资机会",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_14",
-      "text": "研究Anthropic IPO的投资价值",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_14",
+      "text": "使用开源AI工作空间提高协作效率",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_15",
-      "text": "关注Astra与Opus破解化学猜想的学术影响",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_15",
+      "text": "关注AI伦理问题，避免滥用AI技术",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_16",
-      "text": "分析编程易受AI自动化影响的趋势",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_16",
+      "text": "处理PHP2Shell漏洞和网络安全问题",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_17",
-      "text": "评估医疗保险AI实验的伦理和安全问题",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_17",
+      "text": "尝试Chrome的AI自动填充功能",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_18",
-      "text": "准备黑色星期五高峰期的应对策略",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_18",
+      "text": "关注AI在互联网领域的应用市场机遇",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_19",
-      "text": "构建SaaS客户成功体系",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_19",
+      "text": "关注韩国金融行业网络安全问题",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_20",
-      "text": "配置Help Scout支持渠道",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_20",
+      "text": "关注语音AI技术的发展",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_21",
-      "text": "推荐并引入客户服务移动应用",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_21",
+      "text": "创建实用的客户服务理念",
+      "due": "YYYY-MM-DD"
     },
     {
-      "id": "serverchan_20261028_22",
-      "text": "培训员工正确使用AI技术",
-      "due": "2023-04-01"
+      "id": "serverchan_20261029_22",
+      "text": "支持专业人士寻找下一职位",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261029_23",
+      "text": "优化呼叫中心工作排班",
+      "due": "YYYY-MM-DD"
+    },
+    {
+      "id": "serverchan_20261029_24",
+      "text": "应对黑色星期五高峰期的服务规划",
+      "due": "YYYY-MM-DD"
     },
     {
       "id": "idea_2026_08_08T04_34_36_050Z",
